@@ -806,13 +806,13 @@ export default function HomePage() {
                 </div>
               )}
             </div>
-            <a
-              href="#"
+            <Link
+              href="/graduate-admission"
               className="hidden text-sm font-medium hover:opacity-70 sm:block"
               style={{ color: isScrolled ? "#000000" : "#FFFFFF", transition: "color 0.3s" }}
             >
               대졸자전형
-            </a>
+            </Link>
             <Link
               href="/apply"
               className="rounded-full px-5 py-2 text-sm font-bold transition-all"
