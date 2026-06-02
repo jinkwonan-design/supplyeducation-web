@@ -133,13 +133,17 @@ export default function SportsPage() {
       {/* ── 히어로 섹션 ── */}
       <section
         className="relative flex min-h-screen flex-col justify-center"
-        style={{ background: "linear-gradient(135deg, #0a0f28 0%, #1a1aad 60%, #1e3a8a 100%)" }}
+        style={{
+          backgroundImage: "url('/images/4.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "radial-gradient(ellipse at 70% 50%, rgba(255,255,255,0.04) 0%, transparent 60%)",
+            background: "rgba(10, 15, 40, 0.65)",
           }}
         />
         <div className="relative mx-auto w-full max-w-6xl px-4 md:px-6" style={{ zIndex: 2 }}>
@@ -177,6 +181,94 @@ export default function SportsPage() {
             >
               무료 상담 신청하기 →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 하이라이트 섹션 ── */}
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: 480 }}>
+            {/* 이미지 */}
+            <div style={{ position: "relative", minHeight: 320 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/3.jpg"
+                alt="체육학 컨설팅"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
+            </div>
+            {/* 텍스트 */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                padding: "56px 48px",
+                background: "#ffffff",
+              }}
+            >
+              <span
+                style={{
+                  display: "inline-block",
+                  fontSize: 11,
+                  fontWeight: 600,
+                  letterSpacing: "0.1em",
+                  color: "#1a1aad",
+                  background: "#EEF2FF",
+                  padding: "3px 12px",
+                  borderRadius: 20,
+                  marginBottom: 20,
+                  width: "fit-content",
+                }}
+              >
+                서플라이에듀의 방식
+              </span>
+              <h2
+                style={{
+                  fontSize: 26,
+                  fontWeight: 800,
+                  color: "#111",
+                  lineHeight: 1.4,
+                  marginBottom: 16,
+                  wordBreak: "keep-all",
+                }}
+              >
+                체육 현장 경력에<br />
+                <span style={{ color: "#1a1aad" }}>학사 학위까지 더하세요</span>
+              </h2>
+              <p style={{ fontSize: 14, color: "#555", lineHeight: 1.8, marginBottom: 28, wordBreak: "keep-all" }}>
+                선수 출신, 스포츠센터 트레이너, 지도사 자격 준비자까지.
+                서플라이에듀는 각자의 경력과 상황에 맞는
+                최단 경로를 전담 컨설턴트가 직접 설계해드립니다.
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                {[
+                  "자격증·독학사 조합으로 기간 최대 1년 단축",
+                  "체육학 전담 컨설턴트 1:1 배정",
+                  "학위 취득까지 중도 포기 없이 끝까지 책임",
+                ].map((t) => (
+                  <div key={t} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                    <span
+                      style={{
+                        width: 20,
+                        height: 20,
+                        borderRadius: "50%",
+                        background: "#1a1aad",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        marginTop: 1,
+                      }}
+                    >
+                      <span style={{ fontSize: 10, color: "#fff", fontWeight: 700 }}>✓</span>
+                    </span>
+                    <span style={{ fontSize: 14, color: "#333", lineHeight: 1.6 }}>{t}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
