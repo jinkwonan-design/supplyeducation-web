@@ -129,13 +129,17 @@ export default function ElectricalPage() {
       {/* ── 히어로 섹션 ── */}
       <section
         className="relative flex min-h-screen flex-col justify-center"
-        style={{ background: "linear-gradient(135deg, #0a0f28 0%, #1a1aad 60%, #1e3a8a 100%)" }}
+        style={{
+          backgroundImage: "url('/images/5.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "radial-gradient(ellipse at 70% 50%, rgba(255,255,255,0.04) 0%, transparent 60%)",
+            background: "rgba(10, 15, 40, 0.65)",
           }}
         />
         <div className="relative mx-auto w-full max-w-6xl px-4 md:px-6" style={{ zIndex: 2 }}>
@@ -173,6 +177,95 @@ export default function ElectricalPage() {
             >
               무료 상담 신청하기 →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 하이라이트 섹션 ── */}
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: 480 }}>
+            {/* 이미지 */}
+            <div style={{ position: "relative", minHeight: 320 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/6.png"
+                alt="전기공학 컨설팅"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
+            </div>
+            {/* 텍스트 */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                padding: "56px 48px",
+                background: "#ffffff",
+              }}
+            >
+              <span
+                style={{
+                  display: "inline-block",
+                  fontSize: 11,
+                  fontWeight: 600,
+                  letterSpacing: "0.1em",
+                  color: "#1a1aad",
+                  background: "#EEF2FF",
+                  padding: "3px 12px",
+                  borderRadius: 20,
+                  marginBottom: 20,
+                  width: "fit-content",
+                }}
+              >
+                서플라이에듀의 방식
+              </span>
+              <h2
+                style={{
+                  fontSize: 26,
+                  fontWeight: 800,
+                  color: "#111",
+                  lineHeight: 1.4,
+                  marginBottom: 16,
+                  wordBreak: "keep-all",
+                }}
+              >
+                자격증과 학위를<br />
+                <span style={{ color: "#1a1aad" }}>동시에 취득하는 전략</span>입니다
+              </h2>
+              <p style={{ fontSize: 14, color: "#555", lineHeight: 1.8, marginBottom: 28, wordBreak: "keep-all" }}>
+                전기산업기사·전기기사 응시를 준비하면서
+                동시에 학점은행제로 학위까지 취득할 수 있습니다.
+                서플라이에듀는 자격증과 학위를 함께 설계하는
+                최적 플랜을 전담 컨설턴트가 안내해드립니다.
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                {[
+                  "자격증 응시 시점까지 역산한 학점 설계",
+                  "전기공학 전담 컨설턴트 1:1 배정",
+                  "학위 취득까지 중도 포기 없이 끝까지 책임",
+                ].map((t) => (
+                  <div key={t} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                    <span
+                      style={{
+                        width: 20,
+                        height: 20,
+                        borderRadius: "50%",
+                        background: "#1a1aad",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        marginTop: 1,
+                      }}
+                    >
+                      <span style={{ fontSize: 10, color: "#fff", fontWeight: 700 }}>✓</span>
+                    </span>
+                    <span style={{ fontSize: 14, color: "#333", lineHeight: 1.6 }}>{t}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
