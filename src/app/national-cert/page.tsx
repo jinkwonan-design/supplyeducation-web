@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronDown, Wrench, HardHat } from "lucide-react";
 
 const NAVY = "#1a1aad";
@@ -140,19 +141,22 @@ export default function NationalCertPage() {
       <Navbar />
 
       {/* ── 히어로 섹션 ── */}
-      <section
-        className="relative flex min-h-screen flex-col justify-center"
-        style={{ background: "linear-gradient(135deg, #1a1aad 0%, #0d0d7a 100%)" }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "radial-gradient(ellipse at 70% 50%, rgba(255,255,255,0.05) 0%, transparent 60%)",
-          }}
+      <section className="relative flex min-h-screen items-center overflow-hidden">
+        {/* 풀블리드 배경 이미지 */}
+        <Image
+          src="/national-cert-hero.png"
+          alt="기사 자격증 취득"
+          fill
+          priority
+          className="object-cover object-right"
         />
-        <div className="relative mx-auto w-full max-w-6xl px-4 md:px-6" style={{ zIndex: 2 }}>
-          <div className="max-w-2xl" style={{ wordBreak: "keep-all" }}>
+
+        {/* 오버레이: social-welfare와 동일한 방식 */}
+        <div className="absolute inset-0" style={{ background: "rgba(0, 0, 0, 0.55)" }} />
+
+        {/* 텍스트 콘텐츠 */}
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:px-6 py-28 md:py-0">
+          <div className="max-w-xl" style={{ wordBreak: "keep-all" }}>
             <span
               className="mb-6 inline-block rounded-full px-4 py-1 text-xs font-semibold tracking-widest"
               style={{ background: "rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.85)" }}
@@ -161,7 +165,7 @@ export default function NationalCertPage() {
             </span>
             <h1 className="text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl">
               <span className="block">학점만 채우면</span>
-              <span className="block mt-2">기사 시험에 바로 응시할 수 있어요</span>
+              <span className="block mt-2">바로 응시 가능합니다</span>
             </h1>
             <p className="mt-6 text-lg font-medium text-white/80 md:text-xl" style={{ lineHeight: 1.7 }}>
               학점은행제로 응시자격을 취득하는 가장 빠른 방법
@@ -189,6 +193,63 @@ export default function NationalCertPage() {
         </div>
       </section>
 
+      {/* ── 자격증 이미지 카드 섹션 ── */}
+      <section className="w-full bg-[#F8F9FA] py-20 px-6">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center mb-14">
+            <span className="inline-block text-xs font-medium text-[#1a1aad] bg-[#EEF2FF] px-3 py-1 rounded-full mb-4 tracking-widest">
+              국가기술자격
+            </span>
+            <h2 className="text-3xl font-bold tracking-tight text-black md:text-4xl mb-3">
+              산업기사 · 기사, 어떤 자격증인가요?
+            </h2>
+            <p className="text-sm text-gray-500">학점은행제로 응시자격을 갖춘 뒤 시험에 합격하면 취득할 수 있는 국가기술자격증입니다</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* 산업기사 카드 */}
+            <div style={{ borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", background: "#ffffff", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}>
+              <div style={{ height: "260px", overflow: "hidden" }}>
+                <img
+                  src="/images/industrial-engineer.png"
+                  alt="산업기사"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%", transform: "scale(1.35)", transformOrigin: "center 20%" }}
+                />
+              </div>
+              <div style={{ padding: 24 }}>
+                <h3 style={{ fontSize: 20, fontWeight: 700, color: NAVY, marginBottom: 12 }}>산업기사</h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  <span style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>응시자격: <strong>41학점 이상</strong> 보유</span>
+                  <span style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>전문대 2년제 졸업자는 <strong>추가 학점 불필요</strong></span>
+                  <span style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>고졸 기준 취득 기간: <strong>약 4~8개월</strong></span>
+                  <span style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>현장 기술직 취업 및 승진 시 <strong>우대</strong></span>
+                </div>
+              </div>
+            </div>
+
+            {/* 기사 카드 */}
+            <div style={{ borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", background: "#ffffff", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}>
+              <div style={{ height: "260px", overflow: "hidden" }}>
+                <img
+                  src="/images/engineer.png"
+                  alt="기사"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%", transform: "scale(1.4)", transformOrigin: "center 15%" }}
+                />
+              </div>
+              <div style={{ padding: 24 }}>
+                <h3 style={{ fontSize: 20, fontWeight: 700, color: NAVY, marginBottom: 12 }}>기사</h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  <span style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>응시자격: <strong>106학점 이상</strong> 보유</span>
+                  <span style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>전문대 2년제 졸업자: 추가 <strong>약 26학점</strong>만 취득</span>
+                  <span style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>고졸 기준 취득 기간: <strong>약 1~1.5년</strong></span>
+                  <span style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>산업기사보다 높은 등급, <strong>경력·승급에 유리</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── 두 과정 소개 섹션 ── */}
       <section className="w-full bg-white py-20 px-6">
         <div className="mx-auto max-w-5xl">
@@ -204,15 +265,15 @@ export default function NationalCertPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* 산업기사 카드 */}
-            <div style={{ borderRadius: 20, border: "1.5px solid " + NAVY, overflow: "hidden" }}>
-              <div style={{ background: NAVY, padding: "28px 24px 20px" }}>
-                <div style={{ width: 48, height: 48, borderRadius: 14, background: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
+            <div style={{ borderRadius: 20, border: "1px solid #e5e7eb", overflow: "hidden" }}>
+              <div style={{ background: "#EEF2FF", padding: "28px 24px 20px" }}>
+                <div style={{ width: 48, height: 48, borderRadius: 14, background: NAVY, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
                   <Wrench size={24} color="#fff" />
                 </div>
-                <div style={{ display: "inline-block", background: "rgba(255,255,255,0.2)", color: "#fff", fontSize: 11, fontWeight: 600, padding: "3px 10px", borderRadius: 20, marginBottom: 10 }}>
+                <div style={{ display: "inline-block", background: NAVY, color: "#fff", fontSize: 11, fontWeight: 600, padding: "3px 10px", borderRadius: 20, marginBottom: 10 }}>
                   국가기술자격
                 </div>
-                <h3 style={{ fontSize: 20, fontWeight: 700, color: "#fff" }}>산업기사</h3>
+                <h3 style={{ fontSize: 20, fontWeight: 700, color: NAVY }}>산업기사</h3>
               </div>
               <div style={{ padding: "22px 24px 28px" }}>
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -326,7 +387,6 @@ export default function NationalCertPage() {
                       <th style={{ padding: "12px 16px", textAlign: "center", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>보유 학점</th>
                       <th style={{ padding: "12px 16px", textAlign: "center", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>추가 필요</th>
                       <th style={{ padding: "12px 16px", textAlign: "center", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>예상 기간</th>
-                      <th style={{ padding: "12px 16px", textAlign: "center", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>예상 비용</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -335,21 +395,24 @@ export default function NationalCertPage() {
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#888" }}>0학점</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>41학점</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>약 4~8개월</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#15803D", fontWeight: 600 }}>약 54~81만원</td>
                     </tr>
                     <tr style={{ borderBottom: "1px solid #f0f0f0" }}>
                       <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>전문대졸 2년제</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#888" }}>80학점</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#15803D", fontWeight: 700 }}>조건 충족</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>추가 불필요</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#15803D", fontWeight: 600 }}>0원</td>
+                    </tr>
+                    <tr style={{ borderBottom: "1px solid #f0f0f0" }}>
+                      <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>4년제 대졸</td>
+                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#888" }}>전공 관련 여부에 따라 상이</td>
+                      <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>상담 필요</td>
+                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>상담 후 확인</td>
                     </tr>
                     <tr>
                       <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>대학 중퇴</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#888" }}>보유학점에 따라 상이</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>상담 필요</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>상담 후 확인</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#15803D", fontWeight: 600 }}>상담 후 확인</td>
                     </tr>
                   </tbody>
                 </table>
@@ -384,7 +447,6 @@ export default function NationalCertPage() {
                       <th style={{ padding: "12px 16px", textAlign: "center", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>보유 학점</th>
                       <th style={{ padding: "12px 16px", textAlign: "center", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>추가 필요</th>
                       <th style={{ padding: "12px 16px", textAlign: "center", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>예상 기간</th>
-                      <th style={{ padding: "12px 16px", textAlign: "center", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>예상 비용</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -393,28 +455,30 @@ export default function NationalCertPage() {
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#888" }}>0학점</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>106학점</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>약 1~1.5년</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#15803D", fontWeight: 600 }}>약 108~130만원</td>
                     </tr>
                     <tr style={{ borderBottom: "1px solid #f0f0f0" }}>
                       <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>전문대졸 2년제</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#888" }}>80학점</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>26학점</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>약 4개월</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#15803D", fontWeight: 600 }}>약 54만원</td>
                     </tr>
                     <tr style={{ borderBottom: "1px solid #f0f0f0" }}>
                       <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>전문대졸 3년제</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#888" }}>120학점</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#15803D", fontWeight: 700 }}>조건 충족</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>추가 불필요</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#15803D", fontWeight: 600 }}>0원</td>
+                    </tr>
+                    <tr style={{ borderBottom: "1px solid #f0f0f0" }}>
+                      <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>4년제 대졸</td>
+                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#888" }}>전공 관련 여부에 따라 상이</td>
+                      <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>상담 필요</td>
+                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>상담 후 확인</td>
                     </tr>
                     <tr>
                       <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>대학 중퇴·재학</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#888" }}>보유학점에 따라 상이</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>상담 필요</td>
                       <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>상담 후 확인</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#15803D", fontWeight: 600 }}>상담 후 확인</td>
                     </tr>
                   </tbody>
                 </table>
