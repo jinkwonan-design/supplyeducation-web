@@ -200,7 +200,7 @@ export default function ComputerPage() {
             {/* 이미지 */}
             <div style={{ position: "relative", minHeight: 320 }}>
               <Image
-                src="/images/8.jpg"
+                src="/images/8.webp"
                 alt="컴퓨터공학 컨설팅"
                 fill
                 loading="lazy"

@@ -134,7 +134,7 @@ export default function SocialWelfarePage() {
       <section
         className="relative flex min-h-screen flex-col justify-center"
         style={{
-          backgroundImage: "url('/images/social-welfare-hero.png')",
+          backgroundImage: "url('/images/social-welfare-hero.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -200,7 +200,7 @@ export default function SocialWelfarePage() {
             <div style={{ borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", background: "#ffffff", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}>
               <div style={{ position: "relative", height: "260px" }}>
                 <Image
-                  src="/images/social-worker.png"
+                  src="/images/social-worker.webp"
                   alt="사회복지사"
                   fill
                   loading="lazy"
@@ -222,7 +222,7 @@ export default function SocialWelfarePage() {
             <div style={{ borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", background: "#ffffff", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}>
               <div style={{ position: "relative", height: "260px" }}>
                 <Image
-                  src="/images/childcare-teacher.png"
+                  src="/images/childcare-teacher.webp"
                   alt="보육교사"
                   fill
                   loading="lazy"

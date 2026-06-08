@@ -144,7 +144,7 @@ export default function BeautyPage() {
       <section className="relative flex min-h-screen items-center overflow-hidden">
         {/* 풀블리드 배경 이미지 */}
         <Image
-          src="/images/beauty-hero.png"
+          src="/images/beauty-hero.webp"
           alt="미용 학위 및 면허 취득"
           fill
           priority
@@ -209,7 +209,7 @@ export default function BeautyPage() {
           <div style={{ borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", background: "#ffffff", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}>
             <div style={{ height: "320px", overflow: "hidden", position: "relative" }}>
               <Image
-                src="/images/beauty-nail.png"
+                src="/images/beauty-nail.webp"
                 alt="종합미용면허증"
                 fill
                 loading="lazy"

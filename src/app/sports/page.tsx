@@ -193,7 +193,7 @@ export default function SportsPage() {
             {/* 이미지 */}
             <div style={{ position: "relative", minHeight: 320 }}>
               <Image
-                src="/images/3.jpg"
+                src="/images/3.webp"
                 alt="체육학 컨설팅"
                 fill
                 loading="lazy"

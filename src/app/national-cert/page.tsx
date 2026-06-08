@@ -144,7 +144,7 @@ export default function NationalCertPage() {
       <section className="relative flex min-h-screen items-center overflow-hidden">
         {/* 풀블리드 배경 이미지 */}
         <Image
-          src="/national-cert-hero.png"
+          src="/national-cert-hero.webp"
           alt="기사 자격증 취득"
           fill
           priority
@@ -211,7 +211,7 @@ export default function NationalCertPage() {
             <div style={{ borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", background: "#ffffff", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}>
               <div style={{ height: "260px", overflow: "hidden", position: "relative" }}>
                 <Image
-                  src="/images/industrial-engineer.png"
+                  src="/images/industrial-engineer.webp"
                   alt="산업기사"
                   fill
                   loading="lazy"
@@ -233,7 +233,7 @@ export default function NationalCertPage() {
             <div style={{ borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", background: "#ffffff", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}>
               <div style={{ height: "260px", overflow: "hidden", position: "relative" }}>
                 <Image
-                  src="/images/engineer.png"
+                  src="/images/engineer.webp"
                   alt="기사"
                   fill
                   loading="lazy"

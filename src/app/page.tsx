@@ -397,10 +397,10 @@ function ReviewTicker() {
 }
 
 const TEAM = [
-  "/team/team-01.png", "/team/team-02.png", "/team/team-03.png",
-  "/team/team-04.png", "/team/team-05.png", "/team/team-06.png",
-  "/team/team-07.png", "/team/team-08.png", "/team/team-09.jpg",
-  "/team/team-10.png", "/team/team-11.png",
+  "/team/team-01.webp", "/team/team-02.webp", "/team/team-03.webp",
+  "/team/team-04.webp", "/team/team-05.webp", "/team/team-06.webp",
+  "/team/team-07.webp", "/team/team-08.webp", "/team/team-09.webp",
+  "/team/team-10.webp", "/team/team-11.webp",
 ];
 
 const faqs = [
@@ -736,7 +736,7 @@ export default function HomePage() {
         {/* 모바일: 정적 이미지 배경 */}
         <div className="absolute inset-0 sm:hidden" style={{ zIndex: 0 }}>
           <Image
-            src="/images/hero-bg.jpg"
+            src="/images/hero-bg.webp"
             alt=""
             fill
             priority

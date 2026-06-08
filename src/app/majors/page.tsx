@@ -235,7 +235,7 @@ export default function MajorsPage() {
             {/* 이미지 */}
             <div style={{ position: "relative", minHeight: 320 }}>
               <Image
-                src="/images/1.jpg"
+                src="/images/1.webp"
                 alt="서플라이에듀 컨설팅"
                 fill
                 loading="lazy"

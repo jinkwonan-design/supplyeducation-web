@@ -189,7 +189,7 @@ export default function ElectricalPage() {
             {/* 이미지 */}
             <div style={{ position: "relative", minHeight: 320 }}>
               <Image
-                src="/images/6.png"
+                src="/images/6.webp"
                 alt="전기공학 컨설팅"
                 fill
                 loading="lazy"
