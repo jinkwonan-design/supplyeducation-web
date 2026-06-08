@@ -843,24 +843,13 @@ export default function HomePage() {
 
       {/* ── 히어로 섹션 ── */}
       <section className="relative flex min-h-screen flex-col justify-center">
-        {/* 모바일: 정적 이미지 배경 */}
-        <div className="absolute inset-0 sm:hidden" style={{ zIndex: 0 }}>
-          <Image
-            src="/images/hero-bg.webp"
-            alt=""
-            fill
-            priority
-            style={{ objectFit: "cover" }}
-          />
-        </div>
-        {/* 데스크톱: 영상 배경 */}
+        {/* 영상 배경 */}
         <video
           autoPlay
           muted
           loop
           playsInline
-          preload="none"
-          className="hidden sm:block"
+          preload="metadata"
           style={{
             position: "absolute",
             inset: 0,
