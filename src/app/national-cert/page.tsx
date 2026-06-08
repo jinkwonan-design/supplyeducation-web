@@ -209,11 +209,13 @@ export default function NationalCertPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* 산업기사 카드 */}
             <div style={{ borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", background: "#ffffff", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}>
-              <div style={{ height: "260px", overflow: "hidden" }}>
-                <img
+              <div style={{ height: "260px", overflow: "hidden", position: "relative" }}>
+                <Image
                   src="/images/industrial-engineer.png"
                   alt="산업기사"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%", transform: "scale(1.35)", transformOrigin: "center 20%" }}
+                  fill
+                  loading="lazy"
+                  style={{ objectFit: "cover", objectPosition: "center 20%", transform: "scale(1.35)", transformOrigin: "center 20%" }}
                 />
               </div>
               <div style={{ padding: 24 }}>
@@ -229,11 +231,13 @@ export default function NationalCertPage() {
 
             {/* 기사 카드 */}
             <div style={{ borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", background: "#ffffff", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}>
-              <div style={{ height: "260px", overflow: "hidden" }}>
-                <img
+              <div style={{ height: "260px", overflow: "hidden", position: "relative" }}>
+                <Image
                   src="/images/engineer.png"
                   alt="기사"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%", transform: "scale(1.4)", transformOrigin: "center 15%" }}
+                  fill
+                  loading="lazy"
+                  style={{ objectFit: "cover", objectPosition: "center 15%", transform: "scale(1.4)", transformOrigin: "center 15%" }}
                 />
               </div>
               <div style={{ padding: 24 }}>

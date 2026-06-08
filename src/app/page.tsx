@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { MessageCircle, ClipboardList, Laptop, Award, ChevronRight, ChevronDown } from "lucide-react";
 
 const CreditCalculator = dynamic(
@@ -201,94 +202,7 @@ function LiveCounter() {
 }
 
 /* ── 후기 ticker ── */
-const reviewData = [
-  { src: "/reviews/review-1.png" },
-  { src: "/reviews/review-2.png" },
-  { src: "/reviews/review-3.png" },
-  { src: "/reviews/review-4.png" },
-  { src: "/reviews/review-5.png" },
-  { src: "/reviews/review-6.png" },
-  { src: "/reviews/review-7.png" },
-  { src: "/reviews/review-8.png" },
-  { src: "/reviews/review-9.png" },
-  { src: "/reviews/review-10.png" },
-  { src: "/reviews/review-11.png" },
-  { src: "/reviews/review-12.png" },
-  { src: "/reviews/review-13.png" },
-  { src: "/reviews/review-14.png" },
-  { src: "/reviews/review-15.png" },
-  { src: "/reviews/review-16.png" },
-  { src: "/reviews/review-17.png" },
-  { src: "/reviews/review-18.png" },
-  { src: "/reviews/review-19.png" },
-  { src: "/reviews/review-20.png" },
-  { src: "/reviews/review-21.png" },
-  { src: "/reviews/review-22.png" },
-  { src: "/reviews/review-23.png" },
-  { src: "/reviews/review-24.png" },
-  { src: "/reviews/review-25.png" },
-  { src: "/reviews/review-26.png" },
-  { src: "/reviews/review-27.png" },
-  { src: "/reviews/review-28.png" },
-  { src: "/reviews/review-29.png" },
-  { src: "/reviews/review-30.png" },
-  { src: "/reviews/review-31.png" },
-  { src: "/reviews/review-32.png" },
-  { src: "/reviews/review-33.png" },
-  { src: "/reviews/review-34.png" },
-  { src: "/reviews/review-35.png" },
-  { src: "/reviews/review-36.png" },
-  { src: "/reviews/review-37.png" },
-  { src: "/reviews/review-38.png" },
-  { src: "/reviews/review-39.png" },
-  { src: "/reviews/review-40.png" },
-  { src: "/reviews/review-41.png" },
-  { src: "/reviews/review-42.png" },
-  { src: "/reviews/review-43.png" },
-  { src: "/reviews/review-44.png" },
-  { src: "/reviews/review-45.png" },
-  { src: "/reviews/review-46.png" },
-  { src: "/reviews/review-47.png" },
-  { src: "/reviews/review-48.png" },
-  { src: "/reviews/review-49.png" },
-  { src: "/reviews/review-50.png" },
-  { src: "/reviews/review-51.png" },
-  { src: "/reviews/review-52.png" },
-  { src: "/reviews/review-53.png" },
-  { src: "/reviews/review-54.png" },
-  { src: "/reviews/review-55.png" },
-  { src: "/reviews/review-56.png" },
-  { src: "/reviews/review-57.png" },
-  { src: "/reviews/review-58.png" },
-  { src: "/reviews/review-59.png" },
-  { src: "/reviews/review-60.png" },
-  { src: "/reviews/review-61.png" },
-  { src: "/reviews/review-62.png" },
-  { src: "/reviews/review-63.png" },
-  { src: "/reviews/review-64.png" },
-  { src: "/reviews/review-65.png" },
-  { src: "/reviews/review-66.png" },
-  { src: "/reviews/review-67.png" },
-  { src: "/reviews/review-68.png" },
-  { src: "/reviews/review-69.png" },
-  { src: "/reviews/review-70.png" },
-  { src: "/reviews/review-71.png" },
-  { src: "/reviews/review-72.png" },
-  { src: "/reviews/review-73.png" },
-  { src: "/reviews/review-74.png" },
-  { src: "/reviews/review-75.png" },
-  { src: "/reviews/review-76.png" },
-  { src: "/reviews/review-77.png" },
-  { src: "/reviews/review-78.png" },
-  { src: "/reviews/review-79.png" },
-  { src: "/reviews/review-80.png" },
-  { src: "/reviews/review-81.png" },
-  { src: "/reviews/review-82.png" },
-  { src: "/reviews/review-83.png" },
-  { src: "/reviews/review-84.png" },
-  { src: "/reviews/review-85.png" },
-  { src: "/reviews/review-86.png" },
-];
+const reviewData = Array.from({ length: 86 }, (_, i) => ({ src: `/reviews/review-${i + 1}.webp` }));
 
 /* 1행: review-1~6, 2행: review-44~49 (6장 × 4복사 = 24개씩) */
 const ROW1 = reviewData.slice(0, 6);
@@ -608,33 +522,30 @@ function TeamSection() {
       {/* 캐러셀 */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginTop: 40 }}>
         {/* prev */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={TEAM[prev]}
           alt=""
-          loading="lazy"
-          decoding="async"
+          width={180}
+          height={113}
           onClick={() => setActiveIndex(prev)}
           className="w-[120px] h-[75px] md:w-[180px] md:h-[113px]"
           style={{ opacity: 0.45, borderRadius: 12, objectFit: "cover", cursor: "pointer", transition: "all 0.5s ease" }}
         />
         {/* curr */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={TEAM[activeIndex]}
           alt=""
-          loading="lazy"
-          decoding="async"
+          width={340}
+          height={213}
           className="w-[220px] h-[138px] md:w-[340px] md:h-[213px]"
           style={{ opacity: 1, borderRadius: 14, objectFit: "cover", border: "2px solid rgba(255,255,255,0.3)", transition: "all 0.5s ease" }}
         />
         {/* next */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={TEAM[next]}
           alt=""
-          loading="lazy"
-          decoding="async"
+          width={180}
+          height={113}
           onClick={() => setActiveIndex(next)}
           className="w-[120px] h-[75px] md:w-[180px] md:h-[113px]"
           style={{ opacity: 0.45, borderRadius: 12, objectFit: "cover", cursor: "pointer", transition: "all 0.5s ease" }}
@@ -822,13 +733,24 @@ export default function HomePage() {
 
       {/* ── 히어로 섹션 ── */}
       <section className="relative flex min-h-screen flex-col justify-center">
-        {/* 영상 배경 */}
+        {/* 모바일: 정적 이미지 배경 */}
+        <div className="absolute inset-0 sm:hidden" style={{ zIndex: 0 }}>
+          <Image
+            src="/images/hero-bg.jpg"
+            alt=""
+            fill
+            priority
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+        {/* 데스크톱: 영상 배경 */}
         <video
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
+          className="hidden sm:block"
           style={{
             position: "absolute",
             inset: 0,

@@ -207,11 +207,13 @@ export default function BeautyPage() {
           </div>
 
           <div style={{ borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", background: "#ffffff", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}>
-            <div style={{ height: "320px", overflow: "hidden" }}>
-              <img
+            <div style={{ height: "320px", overflow: "hidden", position: "relative" }}>
+              <Image
                 src="/images/beauty-nail.png"
                 alt="종합미용면허증"
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+                fill
+                loading="lazy"
+                style={{ objectFit: "cover", objectPosition: "center" }}
               />
             </div>
             <div style={{ padding: 24 }}>

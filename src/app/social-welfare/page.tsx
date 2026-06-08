@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 
 const NAVY = "#1a1aad";
@@ -197,11 +198,15 @@ export default function SocialWelfarePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* 사회복지사 2급 카드 */}
             <div style={{ borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", background: "#ffffff", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}>
-              <img
-                src="/images/social-worker.png"
-                alt="사회복지사"
-                style={{ width: "100%", height: "260px", objectFit: "cover" }}
-              />
+              <div style={{ position: "relative", height: "260px" }}>
+                <Image
+                  src="/images/social-worker.png"
+                  alt="사회복지사"
+                  fill
+                  loading="lazy"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
               <div style={{ padding: 24 }}>
                 <h3 style={{ fontSize: 20, fontWeight: 700, color: NAVY, marginBottom: 12 }}>사회복지사 2급</h3>
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
@@ -215,11 +220,15 @@ export default function SocialWelfarePage() {
 
             {/* 보육교사 2급 카드 */}
             <div style={{ borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", background: "#ffffff", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}>
-              <img
-                src="/images/childcare-teacher.png"
-                alt="보육교사"
-                style={{ width: "100%", height: "260px", objectFit: "cover" }}
-              />
+              <div style={{ position: "relative", height: "260px" }}>
+                <Image
+                  src="/images/childcare-teacher.png"
+                  alt="보육교사"
+                  fill
+                  loading="lazy"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
               <div style={{ padding: 24 }}>
                 <h3 style={{ fontSize: 20, fontWeight: 700, color: NAVY, marginBottom: 12 }}>보육교사 2급</h3>
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>

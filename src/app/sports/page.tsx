@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronDown, Monitor, Award, BookOpen } from "lucide-react";
 
 const NAVY = "#1a1aad";
@@ -191,11 +192,12 @@ export default function SportsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: 480 }}>
             {/* 이미지 */}
             <div style={{ position: "relative", minHeight: 320 }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/images/3.jpg"
                 alt="체육학 컨설팅"
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                fill
+                loading="lazy"
+                style={{ objectFit: "cover" }}
               />
             </div>
             {/* 텍스트 */}
