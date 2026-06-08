@@ -1,4 +1,4 @@
-import { google } from "googleapis";
+import { kv } from "@vercel/kv";
 
 const STATUS_MAP: Record<string, string> = {
   high_school: "고등학교 졸업",
@@ -12,14 +12,6 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { name, phone, course, status, calculatorData, utm_source, utm_medium, utm_campaign } = body;
-
-    const key = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY!);
-    key.private_key = key.private_key.replace(/\\n/g, "\n");
-    const auth = new google.auth.GoogleAuth({
-      credentials: key,
-      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
-    });
-    const sheets = google.sheets({ version: "v4", auth });
 
     const kst = new Intl.DateTimeFormat("ko-KR", {
       timeZone: "Asia/Seoul",
@@ -35,14 +27,18 @@ export async function POST(request: Request) {
     const utmStr =
       [utm_source, utm_medium, utm_campaign].filter(Boolean).join("/") || "-";
 
-    await sheets.spreadsheets.values.append({
-      spreadsheetId: process.env.GOOGLE_SHEETS_SPREADSHEET_ID!,
-      range: "A:G",
-      valueInputOption: "USER_ENTERED",
-      requestBody: {
-        values: [[name, phone, STATUS_MAP[status] ?? status, utmStr, kst, course ?? "", calculatorData ?? ""]],
-      },
-    });
+    const entry = {
+      id: Date.now(),
+      name: name ?? "",
+      phone: phone ?? "",
+      status: STATUS_MAP[status] ?? status ?? "",
+      utm: utmStr,
+      date: kst,
+      course: course ?? "",
+      calculatorData: calculatorData ?? "",
+    };
+
+    await kv.lpush("submissions", JSON.stringify(entry));
 
     return Response.json({ success: true });
   } catch (error) {
