@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { MessageCircle, ClipboardList, Laptop, Award, ChevronRight, ChevronDown } from "lucide-react";
+import { MessageCircle, ClipboardList, Laptop, Award, ChevronRight, ChevronDown, Menu, X } from "lucide-react";
 
 const CreditCalculator = dynamic(
   () => import("@/components/CreditCalculator"),
@@ -603,6 +603,9 @@ export default function HomePage() {
   const qualCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const degreesRef = useRef<HTMLDivElement>(null);
   const qualRef = useRef<HTMLDivElement>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileDegrees, setMobileDegrees] = useState(false);
+  const [mobileQual, setMobileQual] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 50);
@@ -648,6 +651,16 @@ export default function HomePage() {
             서플라이에듀케이션
           </Link>
           <div className="flex items-center gap-6">
+            {/* 모바일 햄버거 */}
+            <button
+              className="sm:hidden"
+              onClick={() => setMobileMenuOpen(true)}
+              style={{ background: "none", border: "none", cursor: "pointer", color: isScrolled ? "#000" : "#fff", padding: 4 }}
+              aria-label="메뉴 열기"
+            >
+              <Menu size={24} />
+            </button>
+
             <div
               ref={degreesRef}
               className="relative hidden sm:block"
@@ -730,6 +743,103 @@ export default function HomePage() {
           </div>
         </div>
       </header>
+
+      {/* ── 모바일 메뉴 오버레이 ── */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 z-[200] flex flex-col bg-white sm:hidden"
+          style={{ overflowY: "auto" }}
+        >
+          {/* 상단 바 */}
+          <div className="flex h-16 items-center justify-between px-5" style={{ borderBottom: "1px solid #f0f0f0" }}>
+            <Link href="/" className="text-lg font-bold text-black" onClick={() => setMobileMenuOpen(false)}>
+              서플라이에듀케이션
+            </Link>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ background: "none", border: "none", cursor: "pointer", padding: 4 }}
+              aria-label="메뉴 닫기"
+            >
+              <X size={24} color="#000" />
+            </button>
+          </div>
+
+          {/* 메뉴 항목 */}
+          <div className="flex flex-col px-5 py-4">
+
+            {/* 학위취득 */}
+            <button
+              onClick={() => setMobileDegrees(v => !v)}
+              className="flex items-center justify-between py-4 text-base font-semibold text-gray-800"
+              style={{ background: "none", border: "none", borderBottom: "1px solid #f3f4f6", cursor: "pointer", width: "100%", textAlign: "left" }}
+            >
+              학위취득
+              <ChevronDown size={18} color="#aaa" style={{ transform: mobileDegrees ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
+            </button>
+            {mobileDegrees && (
+              <div className="mb-1 ml-4 flex flex-col" style={{ borderBottom: "1px solid #f3f4f6" }}>
+                {[
+                  { href: "/majors", label: "경영 아동 심리 등" },
+                  { href: "/sports", label: "체육학" },
+                  { href: "/electrical", label: "전기공학" },
+                  { href: "/computer", label: "컴퓨터공학" },
+                ].map(item => (
+                  <Link key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)}
+                    className="py-3 text-sm text-gray-600">
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {/* 국가자격증 */}
+            <button
+              onClick={() => setMobileQual(v => !v)}
+              className="flex items-center justify-between py-4 text-base font-semibold text-gray-800"
+              style={{ background: "none", border: "none", borderBottom: "1px solid #f3f4f6", cursor: "pointer", width: "100%", textAlign: "left" }}
+            >
+              국가자격증
+              <ChevronDown size={18} color="#aaa" style={{ transform: mobileQual ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
+            </button>
+            {mobileQual && (
+              <div className="mb-1 ml-4 flex flex-col" style={{ borderBottom: "1px solid #f3f4f6" }}>
+                {[
+                  { href: "/social-welfare", label: "사회복지사2급 보육교사2급" },
+                  { href: "/national-cert", label: "산업기사 기사 자격증" },
+                  { href: "/beauty", label: "종합미용면허증" },
+                ].map(item => (
+                  <Link key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)}
+                    className="py-3 text-sm text-gray-600">
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {/* 대졸자전형 */}
+            <Link
+              href="/graduate-admission"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-4 text-base font-semibold text-gray-800"
+              style={{ borderBottom: "1px solid #f3f4f6" }}
+            >
+              대졸자전형
+            </Link>
+          </div>
+
+          {/* 하단 상담신청 버튼 */}
+          <div className="px-5 py-6 mt-auto">
+            <Link
+              href="/apply"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block w-full rounded-full py-4 text-center text-base font-bold text-white"
+              style={{ background: NAVY }}
+            >
+              1:1 상담 신청하기
+            </Link>
+          </div>
+        </div>
+      )}
 
       {/* ── 히어로 섹션 ── */}
       <section className="relative flex min-h-screen flex-col justify-center">
