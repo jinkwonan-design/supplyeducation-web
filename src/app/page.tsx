@@ -769,11 +769,13 @@ export default function HomePage() {
                 />
               </button>
               {isDegreesOpen && (
-                <div style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", marginTop: 8, background: "#ffffff", borderRadius: 10, boxShadow: "0 4px 20px rgba(0,0,0,0.12)", overflow: "hidden", minWidth: 130, zIndex: 100 }}>
-                  <Link href="/majors" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 whitespace-nowrap transition-colors">경영 아동 심리 등</Link>
-                  <Link href="/sports" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 border-t border-gray-100 transition-colors">체육학</Link>
-                  <Link href="/electrical" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 border-t border-gray-100 transition-colors">전기공학</Link>
-                  <Link href="/computer" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 border-t border-gray-100 transition-colors">컴퓨터공학</Link>
+                <div style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", paddingTop: 8, zIndex: 100 }}>
+                  <div style={{ background: "#ffffff", borderRadius: 10, boxShadow: "0 4px 20px rgba(0,0,0,0.12)", overflow: "hidden", minWidth: 130 }}>
+                    <Link href="/majors" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 whitespace-nowrap transition-colors">경영 아동 심리 등</Link>
+                    <Link href="/sports" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 border-t border-gray-100 transition-colors">체육학</Link>
+                    <Link href="/electrical" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 border-t border-gray-100 transition-colors">전기공학</Link>
+                    <Link href="/computer" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 border-t border-gray-100 transition-colors">컴퓨터공학</Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -799,10 +801,12 @@ export default function HomePage() {
                 />
               </button>
               {isQualOpen && (
-                <div style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", marginTop: 8, background: "#ffffff", borderRadius: 10, boxShadow: "0 4px 20px rgba(0,0,0,0.12)", overflow: "hidden", minWidth: 130, zIndex: 100 }}>
-                  <Link href="#" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 whitespace-nowrap transition-colors">사회복지사2급 보육교사2급</Link>
-                  <Link href="#" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 border-t border-gray-100 whitespace-nowrap transition-colors">산업기사 기사 자격증</Link>
-                  <Link href="#" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 border-t border-gray-100 whitespace-nowrap transition-colors">종합미용면허증</Link>
+                <div style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", paddingTop: 8, zIndex: 100 }}>
+                  <div style={{ background: "#ffffff", borderRadius: 10, boxShadow: "0 4px 20px rgba(0,0,0,0.12)", overflow: "hidden", minWidth: 130 }}>
+                    <Link href="/social-welfare" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 whitespace-nowrap transition-colors">사회복지사2급 보육교사2급</Link>
+                    <Link href="/national-cert" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 border-t border-gray-100 whitespace-nowrap transition-colors">산업기사 기사 자격증</Link>
+                    <Link href="/beauty" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 border-t border-gray-100 whitespace-nowrap transition-colors">종합미용면허증</Link>
+                  </div>
                 </div>
               )}
             </div>
