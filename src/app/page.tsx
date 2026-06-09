@@ -121,11 +121,11 @@ function StatItem({
   return (
     <div
       ref={ref}
-      className="flex flex-col items-center justify-center px-6 py-4 text-center"
+      className="flex flex-col items-center justify-center px-1 py-3 text-center sm:px-6 sm:py-4"
       style={divider ? { borderRight: "0.5px solid #e5e5e5" } : undefined}
     >
       <p
-        className="text-3xl font-bold md:text-5xl"
+        className="whitespace-nowrap text-2xl font-bold sm:text-3xl md:text-5xl"
         style={{ lineHeight: 1.1, color: NAVY }}
       >
         {parts.map((part, i) =>
@@ -150,7 +150,7 @@ function StatItem({
           )
         )}
       </p>
-      <p className="mt-3 text-xs font-bold text-black md:text-sm">{label}</p>
+      <p className="mt-2 whitespace-nowrap text-[10px] font-bold text-black sm:mt-3 sm:text-xs md:text-sm">{label}</p>
     </div>
   );
 }
@@ -184,8 +184,8 @@ function LiveCounter() {
   );
 
   return (
-    <div ref={ref} className="flex flex-col items-center justify-center px-6 py-4 text-center" style={{ borderRight: "0.5px solid #e5e5e5" }}>
-      <p className="whitespace-nowrap text-3xl font-bold md:text-5xl" style={{ lineHeight: 1.1, color: NAVY }}>
+    <div ref={ref} className="flex flex-col items-center justify-center px-1 py-3 text-center sm:px-6 sm:py-4" style={{ borderRight: "0.5px solid #e5e5e5" }}>
+      <p className="whitespace-nowrap text-2xl font-bold sm:text-3xl md:text-5xl" style={{ lineHeight: 1.1, color: NAVY }}>
         {parts.map((part, i) =>
           part.type === "digit" ? (
             <OdometerDigit key={i} digit={part.value} duration={1500} trigger={trigger} />
@@ -197,7 +197,7 @@ function LiveCounter() {
         )}
         <span style={{ display: "inline-block", verticalAlign: "top", lineHeight: "1em" }}>+</span>
       </p>
-      <p className="mt-3 text-xs font-bold text-black md:text-sm">실시간 누적 수강생</p>
+      <p className="mt-2 whitespace-nowrap text-[10px] font-bold text-black sm:mt-3 sm:text-xs md:text-sm">실시간 누적 수강생</p>
     </div>
   );
 }
@@ -874,25 +874,25 @@ export default function HomePage() {
         />
 
         {/* 텍스트 콘텐츠 — 중앙 왼쪽 */}
-        <div className="relative mx-auto w-full max-w-6xl px-4 md:px-6" style={{ zIndex: 2 }}>
-          <div className="max-w-2xl" style={{ wordBreak: "keep-all" }}>
-            <h1 className="text-[1.75rem] font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
+        <div className="relative mx-auto w-full max-w-6xl px-5 md:px-8" style={{ zIndex: 2 }}>
+          <div className="max-w-xl md:max-w-2xl" style={{ wordBreak: "keep-all" }}>
+            <h1 className="text-[1.55rem] font-bold leading-snug tracking-tight text-white sm:text-[2.1rem] md:text-[2.9rem] lg:text-5xl">
               <span className="block">90%는 손해보는 학점은행제,</span>
-              <span className="block">
+              <span className="block mt-1">
                 <span
-                  className="inline px-2 py-1 text-white"
+                  className="inline-block px-2 py-0.5 align-middle text-white"
                   style={{ background: NAVY }}
                 >
                   서플라이에듀
                 </span>
-                와 함께 하면 다릅니다
+                <span>와 함께 하면 다릅니다</span>
               </span>
             </h1>
-            <div className="mt-10 space-y-1">
-              <p className="text-base font-semibold text-white sm:text-xl md:text-2xl">
+            <div className="mt-5 space-y-1 md:mt-8">
+              <p className="text-[0.95rem] font-semibold text-white sm:text-lg md:text-xl lg:text-2xl">
                 돈과 시간을 아끼는 정확한 플랜,
               </p>
-              <p className="text-base font-semibold text-white sm:text-xl md:text-2xl">
+              <p className="text-[0.95rem] font-semibold text-white sm:text-lg md:text-xl lg:text-2xl">
                 <span className="font-bold underline underline-offset-2">상위 10%만 아는 지름길</span>을 알려드립니다
               </p>
             </div>
@@ -907,7 +907,7 @@ export default function HomePage() {
             <p className="text-2xl font-bold tracking-tight text-black md:text-3xl">압도적인 수치의 비밀</p>
             <p className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: NAVY }}>단 3분이면 확인 됩니다.</p>
           </div>
-          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+          <div className="grid grid-cols-3 gap-0 max-w-2xl mx-auto sm:gap-4">
             <LiveCounter />
             <StatItem final="97.3%" label="학위 취득률" stopAt={1500} divider />
             <StatItem final="4개월~" label="최단 취득 기간" stopAt={1500} />

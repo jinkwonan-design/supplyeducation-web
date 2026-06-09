@@ -39,6 +39,18 @@ export default function RootLayout({
           />
         </noscript>
 
+        {/* Meta Pixel noscript fallback */}
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1652329863197521&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
+
         {children}
       </body>
 
@@ -68,7 +80,7 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window,document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1723140692008600');
+fbq('init','1652329863197521');
 fbq('track','PageView');`,
         }}
       />
