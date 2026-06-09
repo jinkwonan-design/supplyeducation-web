@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 import { UserCheck, Zap, Wallet, Smartphone, ChevronRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -742,17 +743,7 @@ export default function PhysicalEducationPage() {
         </div>
       </section>
 
-      {/* ─── FOOTER ───────────────────────────────────────────────────── */}
-      <footer className="px-4 py-10 text-center" style={{ background: "#111827" }}>
-        <p className="text-sm font-bold text-white">서플라이에듀케이션</p>
-        <p className="mt-2 text-xs text-gray-500">
-          사업자등록번호: 000-00-00000 &nbsp;|&nbsp; 대표: 홍길동 &nbsp;|&nbsp; 통신판매업신고: 제0000-서울-0000호
-        </p>
-        <p className="mt-1 text-xs text-gray-500">
-          서울특별시 강남구 테헤란로 00길 00, 000호 &nbsp;|&nbsp; 고객센터: 02-0000-0000 &nbsp;|&nbsp; admin@supplyeducation.co.kr
-        </p>
-        <p className="mt-4 text-xs text-gray-600">© 2026 서플라이에듀케이션. All rights reserved.</p>
-      </footer>
+      <Footer />
 
     </div>
   );

@@ -1,9 +1,10 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MessageCircle, ClipboardList, Laptop, Award, ChevronDown } from "lucide-react";
+import Footer from "@/components/Footer";
 
 const NAVY = "#1a1aad";
 
@@ -463,16 +464,7 @@ export default function MajorsPage() {
         </div>
       </section>
 
-      {/* ── 푸터 ── */}
-      <footer className="border-t bg-white py-8" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
-        <div
-          className="mx-auto max-w-6xl px-4 md:px-6 text-center text-xs"
-          style={{ color: "rgba(0,0,0,0.4)" }}
-        >
-          <p className="font-semibold" style={{ color: "rgba(0,0,0,0.6)" }}>서플라이에듀케이션</p>
-          <p className="mt-1">© {new Date().getFullYear()} Supply Education. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

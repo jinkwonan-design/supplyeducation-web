@@ -299,11 +299,20 @@ export default function ApplyPage() {
                   />
                   <div>
                     <span className="text-sm font-semibold text-gray-700">
-                      [필수] 개인정보 수집 및 이용에 동의합니다.
+                      [필수] 개인정보 수집·이용에 동의합니다.
                     </span>
                     <p className="mt-1 text-xs leading-relaxed text-gray-400">
-                      수집된 정보는 상담 목적으로만 사용되며, 상담 완료 후 안전하게 폐기됩니다.
+                      수집 항목: 이름, 연락처, 상담 내용 &nbsp;|&nbsp; 수집 목적: 학점은행제·대졸자전형 상담 안내 및 학습 지원<br />
+                      보존 기간: 상담 완료 후 1년 &nbsp;|&nbsp; 동의를 거부할 권리가 있으며, 거부 시 상담 신청이 제한됩니다.
                     </p>
+                    <a
+                      href="/privacy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-block text-xs text-blue-500 underline"
+                    >
+                      개인정보처리방침 전문 보기
+                    </a>
                   </div>
                 </label>
               </div>
