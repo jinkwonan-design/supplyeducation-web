@@ -103,6 +103,10 @@ export default function ApplyPage() {
       if (typeof fbq !== "undefined") {
         fbq("track", "Lead");
       }
+      // Meta Pixel 상담 신청 완료 이벤트
+      if (window.fbq) {
+        window.fbq("track", "Contact");
+      }
       // GTM dataLayer 이벤트
       if (typeof window !== "undefined" && window.dataLayer) {
         window.dataLayer.push({
