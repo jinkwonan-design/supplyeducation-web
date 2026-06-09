@@ -876,9 +876,9 @@ export default function HomePage() {
         {/* 텍스트 콘텐츠 — 중앙 왼쪽 */}
         <div className="relative mx-auto w-full max-w-6xl px-4 md:px-6" style={{ zIndex: 2 }}>
           <div className="max-w-2xl" style={{ wordBreak: "keep-all" }}>
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl">
+            <h1 className="text-[1.75rem] font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
               <span className="block">90%는 손해보는 학점은행제,</span>
-              <span className="block whitespace-nowrap">
+              <span className="block">
                 <span
                   className="inline px-2 py-1 text-white"
                   style={{ background: NAVY }}
@@ -888,11 +888,11 @@ export default function HomePage() {
                 와 함께 하면 다릅니다
               </span>
             </h1>
-            <div className="mt-14 space-y-1">
-              <p className="text-xl font-semibold text-white md:text-2xl">
+            <div className="mt-10 space-y-1">
+              <p className="text-base font-semibold text-white sm:text-xl md:text-2xl">
                 돈과 시간을 아끼는 정확한 플랜,
               </p>
-              <p className="text-xl font-semibold text-white md:text-2xl">
+              <p className="text-base font-semibold text-white sm:text-xl md:text-2xl">
                 <span className="font-bold underline underline-offset-2">상위 10%만 아는 지름길</span>을 알려드립니다
               </p>
             </div>
