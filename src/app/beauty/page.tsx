@@ -53,23 +53,23 @@ function Navbar() {
 const faqs = [
   {
     q: "종합미용면허증을 취득하려면 미용학원을 꼭 다녀야 하나요?",
-    a: "아니요. 학점은행제로 미용 관련 학사학위를 취득하면 미용사(일반) 국가면허 시험에 응시할 수 있습니다. 학원 없이도 온라인 수업과 소수의 실습으로 학위를 취득할 수 있어요.",
+    a: "아니요.\n종합미용면허증은 미용 관련 전문학사 학위만 취득하면 발급 가능합니다.\n\n학점은행제를 통해 온라인 수업만으로도 학위 취득이 가능하며,\n별도의 국가자격시험이나 실기시험은 필요하지 않습니다.",
   },
   {
     q: "미용학위 취득에 얼마나 걸리나요?",
-    a: "고졸 기준으로 140학점을 모두 취득해야 하므로 약 1.5~2년이 소요됩니다. 이미 전문대를 졸업하셨거나 학점을 보유하고 있다면 더 빨리 완료할 수 있습니다.",
+    a: "고졸 기준 약 80학점을 이수해야 하며, 보통 1~1.5년 정도 소요됩니다.\n전문대졸 이상이라면 36학점만 추가로 이수하면 되어 약 1년(2학기) 이내에 전문학사 취득이 가능합니다.",
   },
   {
     q: "미용 전공 온라인 수업이 가능한가요?",
-    a: "이론 과목은 100% 온라인으로 수강 가능합니다. 일부 실습 과목은 오프라인 출석이 필요할 수 있으나, 전담 컨설턴트가 최적의 과목 조합을 안내해드립니다.",
+    a: "전문학사 과정은 100% 온라인 진행 가능합니다.\n\n종합미용면허증 발급만 목적이라면 별도 실습 과목 이수가 필요하지 않습니다.\n\n다만 실제 미용 기술을 배우거나 미용사 국가자격증 취득을 목표로 하는 경우에는 학원에서 실무 교육을 받는 것이 일반적입니다.",
   },
   {
-    q: "미용사(일반) 면허와 미용학위는 어떤 관계인가요?",
-    a: "미용 관련 학사 이상의 학위를 취득하거나, 미용사(일반) 관련 국가자격증 취득 후 미용학원 실습을 이수하면 면허 시험에 응시할 수 있습니다. 학점은행제 미용 학사 취득이 가장 체계적인 경로입니다.",
+    q: "미용사(일반) 국가자격증은 어떻게 취득하나요?",
+    a: "미용사(일반) 국가자격증은 별도의 응시자격 제한이 없어 누구나 필기·실기 시험에 응시할 수 있습니다.\n\n다만 실기시험 합격을 위해서는 실제 미용 기술이 필요하므로, 대부분 학원에서 오프라인 실습 교육을 받은 후 응시합니다.\n\n종합미용면허증 발급만을 목적으로 한다면 국가자격시험 없이 전문학사 학위 취득만으로 발급이 가능합니다.",
   },
   {
     q: "전문대 미용과를 졸업했는데 추가로 무엇이 필요한가요?",
-    a: "전문대졸(2년제) 기준 80학점을 보유하고 있으므로, 학사 취득까지 약 60학점이 추가로 필요합니다. 약 8개월~1년 정도면 충분합니다.",
+    a: "전문대졸 이상이라면 미용 관련 전공 36학점만 추가로 이수하면 전문학사 취득이 가능합니다.\n약 1년(2학기) 정도면 충분하며, 취득 후 바로 종합미용면허증 발급 신청이 가능합니다.",
   },
 ];
 
@@ -112,7 +112,7 @@ function FAQSection() {
                 />
               </button>
               {openIndex === i && (
-                <div className="px-5 pb-4 text-sm leading-relaxed text-gray-500">{faq.a}</div>
+                <div className="px-5 pb-4 text-sm leading-relaxed text-gray-500 whitespace-pre-line">{faq.a}</div>
               )}
             </div>
           ))}
@@ -134,8 +134,6 @@ function SubjectItem({ text }: { text: string }) {
 
 /* ── 메인 페이지 ── */
 export default function BeautyPage() {
-  const [activeTab, setActiveTab] = useState<"전문학사" | "학사">("전문학사");
-  const tabs: Array<"전문학사" | "학사"> = ["전문학사", "학사"];
 
   return (
     <div className="flex min-h-screen flex-col font-sans text-black antialiased">
@@ -221,9 +219,13 @@ export default function BeautyPage() {
               <h3 style={{ fontSize: 20, fontWeight: 700, color: NAVY, marginBottom: 12 }}>종합미용면허증</h3>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 <span style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>헤어·피부·네일·메이크업 <strong>4개 분야 모두 시술·창업 가능</strong></span>
-                <span style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>별도 국가자격시험 없이 <strong>학위 취득만으로 발급</strong></span>
+                <span style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>미용 관련 <strong>전문학사 이상 학위 취득만으로 발급</strong> (국가자격시험 불필요)</span>
                 <span style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>분야별 자격증 대비 <strong>비용·시간 대폭 절약</strong></span>
                 <span style={{ fontSize: 14, color: "#555", lineHeight: 1.7 }}>100% 온라인 과정, <strong>직장 병행 가능</strong></span>
+              </div>
+              <div style={{ marginTop: 16, padding: "14px 16px", background: "#F8F9FA", borderRadius: 10, fontSize: 13, color: "#555", lineHeight: 1.8 }}>
+                미용 관련 전문학사 이상의 학위를 취득하면 종합미용면허증 발급이 가능합니다. 미용 관련 학과 졸업자도 동일하게 인정되며, 미용고등학교 졸업자 역시 관련 기준 충족 시 면허 발급이 가능합니다.<br />
+                학교를 다시 다니기 어려운 직장인·주부·성인의 경우 <strong>학점은행제를 통한 온라인 학위 취득이 가장 효율적인 방법</strong>입니다.
               </div>
             </div>
           </div>
@@ -319,10 +321,10 @@ export default function BeautyPage() {
               </div>
               <div style={{ padding: "22px 24px 28px" }}>
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                  <SubjectItem text="학점은행제로 미용 관련 전문학사 또는 학사 학위 취득" />
+                  <SubjectItem text="학점은행제로 미용 관련 전문학사 취득" />
                   <SubjectItem text="온라인 강의 중심, 자격증·기존 학점 인정 병행 가능" />
                   <SubjectItem text="전문학사(80학점)만으로 면허 발급 자격 충족" />
-                  <SubjectItem text="고졸 약 1~1.5년 / 전문대졸 이상 약 1년 소요" />
+                  <SubjectItem text="고졸 80학점 / 전문대졸 이상 36학점" />
                 </div>
               </div>
             </div>
@@ -363,148 +365,67 @@ export default function BeautyPage() {
         </div>
       </section>
 
-      {/* ── 과정별 플랜 탭 섹션 ── */}
+      {/* ── 취득 플랜 섹션 ── */}
       <section className="w-full bg-[#F8F9FA] py-20 px-6">
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <span className="inline-block text-xs font-medium text-[#1a1aad] bg-[#EEF2FF] px-3 py-1 rounded-full mb-4 tracking-widest">
-              과정별 플랜
+              취득 플랜
             </span>
             <h2 className="text-3xl font-bold tracking-tight text-black md:text-4xl mb-3">
               내 학력에 맞는 플랜을 확인하세요
             </h2>
-            <p className="text-sm text-gray-500">현재 학력에 따라 소요 기간과 비용이 달라집니다</p>
+            <p className="text-sm text-gray-500">전문학사(80학점) 취득 시 종합미용면허증 발급이 가능합니다</p>
           </div>
 
-          {/* 탭 */}
-          <div style={{ display: "flex", justifyContent: "center", gap: 8, marginBottom: 32 }}>
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                style={{
-                  padding: "10px 22px",
-                  borderRadius: 30,
-                  fontSize: 14,
-                  fontWeight: 600,
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "all 0.2s",
-                  background: activeTab === tab ? NAVY : "#ffffff",
-                  color: activeTab === tab ? "#ffffff" : "#555",
-                  boxShadow: activeTab === tab ? "0 2px 12px rgba(26,26,173,0.25)" : "0 1px 4px rgba(0,0,0,0.08)",
-                }}
-              >
-                {tab}
-              </button>
-            ))}
+          <div style={{ background: "#ffffff", borderRadius: 20, padding: "36px 32px", border: "1px solid #e5e7eb" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
+              <span style={{ fontSize: 13, fontWeight: 600, color: NAVY, background: "#EEF2FF", padding: "3px 12px", borderRadius: 20 }}>전문학사 (80학점)</span>
+              <h3 style={{ fontSize: 22, fontWeight: 700, color: "#111" }}>학력별 취득 플랜</h3>
+            </div>
+            <p style={{ fontSize: 13, color: "#888", marginBottom: 28 }}>80학점 취득 시 전문학사 취득 → 종합미용면허증 발급 가능</p>
+
+            <div style={{ overflowX: "auto", marginBottom: 28 }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
+                <thead>
+                  <tr style={{ background: "#F8F9FA" }}>
+                    <th style={{ padding: "12px 16px", textAlign: "left", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>현재 학력</th>
+                    <th style={{ padding: "12px 16px", textAlign: "center", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>추가 필요 학점</th>
+                    <th style={{ padding: "12px 16px", textAlign: "center", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>예상 기간</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style={{ borderBottom: "1px solid #f0f0f0" }}>
+                    <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>고졸</td>
+                    <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>80학점</td>
+                    <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>약 1~1.5년</td>
+                  </tr>
+                  <tr style={{ borderBottom: "1px solid #f0f0f0" }}>
+                    <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>전문대졸 이상</td>
+                    <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>전공 36학점 (의무 18학점 포함)</td>
+                    <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>약 1년 (2학기)</td>
+                  </tr>
+                  <tr style={{ borderBottom: "1px solid #f0f0f0" }}>
+                    <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>4년제 대졸 (타전공)</td>
+                    <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>전공 36학점 (의무 18학점 포함)</td>
+                    <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>약 1년 (2학기)</td>
+                  </tr>
+                  <tr>
+                    <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>대학 중퇴</td>
+                    <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>보유학점에 따라 상이</td>
+                    <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>상담 후 확인</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 12 }}>주요 이수 과목 예시</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+              {["미용경영학", "미용과건강", "미용문화사", "미용색채학", "미용학개론", "피부미용학", "화장품학", "모발과학", "사진학개론Ⅰ", "식품보건산업학", "의상학", "코디네이트미학"].map((s) => (
+                <div key={s} style={{ background: "#F8F9FA", borderRadius: 8, padding: "8px 12px", fontSize: 12, color: "#444" }}>{s}</div>
+              ))}
+            </div>
           </div>
-
-          {/* 전문학사 탭 */}
-          {activeTab === "전문학사" && (
-            <div style={{ background: "#ffffff", borderRadius: 20, padding: "36px 32px", border: "1px solid #e5e7eb" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
-                <span style={{ fontSize: 13, fontWeight: 600, color: NAVY, background: "#EEF2FF", padding: "3px 12px", borderRadius: 20 }}>전문학사 (80학점)</span>
-                <h3 style={{ fontSize: 22, fontWeight: 700, color: "#111" }}>학력별 취득 플랜</h3>
-              </div>
-              <p style={{ fontSize: 13, color: "#888", marginBottom: 28 }}>80학점 취득 시 전문학사 취득 가능</p>
-
-              <div style={{ overflowX: "auto", marginBottom: 28 }}>
-                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
-                  <thead>
-                    <tr style={{ background: "#F8F9FA" }}>
-                      <th style={{ padding: "12px 16px", textAlign: "left", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>현재 학력</th>
-                      <th style={{ padding: "12px 16px", textAlign: "center", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>추가 필요 학점</th>
-                      <th style={{ padding: "12px 16px", textAlign: "center", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>예상 기간</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr style={{ borderBottom: "1px solid #f0f0f0" }}>
-                      <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>고졸</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>80학점</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>약 1~1.5년</td>
-                    </tr>
-                    <tr style={{ borderBottom: "1px solid #f0f0f0" }}>
-                      <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>전문대졸 이상</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>전공 36학점 (의무 18학점 포함)</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>약 1년 (2학기)</td>
-                    </tr>
-                    <tr style={{ borderBottom: "1px solid #f0f0f0" }}>
-                      <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>4년제 대졸 (타전공)</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>전공 36학점 (의무 18학점 포함)</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>약 1년 (2학기)</td>
-                    </tr>
-                    <tr>
-                      <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>대학 중퇴</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>보유학점에 따라 상이</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>상담 후 확인</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <p style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 12 }}>주요 이수 과목 예시</p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                {["미용학개론", "피부미용학", "헤어미용학", "메이크업이론", "네일아트", "두피모발관리학", "미용해부생리학", "화장품학"].map((s) => (
-                  <div key={s} style={{ background: "#F8F9FA", borderRadius: 8, padding: "8px 12px", fontSize: 12, color: "#444" }}>{s}</div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* 학사 탭 */}
-          {activeTab === "학사" && (
-            <div style={{ background: "#ffffff", borderRadius: 20, padding: "36px 32px", border: "1px solid #e5e7eb" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
-                <span style={{ fontSize: 13, fontWeight: 600, color: NAVY, background: "#EEF2FF", padding: "3px 12px", borderRadius: 20 }}>학사 (140학점)</span>
-                <h3 style={{ fontSize: 22, fontWeight: 700, color: "#111" }}>학력별 취득 플랜</h3>
-              </div>
-              <p style={{ fontSize: 13, color: "#888", marginBottom: 28 }}>140학점 취득 시 미용 학사 취득 — 미용사 면허 응시자격 획득</p>
-
-              <div style={{ overflowX: "auto", marginBottom: 28 }}>
-                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
-                  <thead>
-                    <tr style={{ background: "#F8F9FA" }}>
-                      <th style={{ padding: "12px 16px", textAlign: "left", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>현재 학력</th>
-                      <th style={{ padding: "12px 16px", textAlign: "center", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>추가 필요 학점</th>
-                      <th style={{ padding: "12px 16px", textAlign: "center", fontWeight: 700, color: "#111", borderBottom: "2px solid #e5e7eb" }}>예상 기간</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr style={{ borderBottom: "1px solid #f0f0f0" }}>
-                      <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>고졸</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>140학점</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>약 1.5~2년</td>
-                    </tr>
-                    <tr style={{ borderBottom: "1px solid #f0f0f0" }}>
-                      <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>전문대졸 2년제</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>60학점</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>약 8개월~1년</td>
-                    </tr>
-                    <tr style={{ borderBottom: "1px solid #f0f0f0" }}>
-                      <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>전문대졸 3년제</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>20학점</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>약 4개월</td>
-                    </tr>
-                    <tr>
-                      <td style={{ padding: "12px 16px", color: "#444", fontWeight: 600 }}>대학 중퇴</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: NAVY, fontWeight: 600 }}>보유학점에 따라 상이</td>
-                      <td style={{ padding: "12px 16px", textAlign: "center", color: "#444" }}>상담 후 확인</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div style={{ background: "#EEF2FF", borderRadius: 12, padding: "16px 20px" }}>
-                <p style={{ fontSize: 13, fontWeight: 700, color: NAVY, marginBottom: 6 }}>미용학사 취득의 장점</p>
-                <div>
-                  <SubjectItem text="미용사(일반) 국가면허 응시자격 획득" />
-                  <SubjectItem text="뷰티 기업 취업 시 학사 우대 조건 충족" />
-                  <SubjectItem text="창업 시 대출 등 각종 혜택 활용 가능" />
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </section>
 
