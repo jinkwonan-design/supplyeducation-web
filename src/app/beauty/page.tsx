@@ -433,7 +433,7 @@ export default function BeautyPage() {
 
             <p style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 12 }}>주요 이수 과목 예시</p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-              {["미용경영학", "미용과건강", "미용문화사", "미용색채학", "미용학개론", "피부미용학", "화장품학", "모발과학", "사진학개론Ⅰ", "식품보건산업학", "의상학", "코디네이트미학"].map((s) => (
+              {["미용경영학", "미용과건강", "미용문화사", "미용색채학", "미용학개론", "피부미용학", "화장품학", "모발과학", "사진학개론Ⅰ", "의상학", "코디네이트미학"].map((s) => (
                 <div key={s} style={{ background: "#F8F9FA", borderRadius: 8, padding: "8px 12px", fontSize: 12, color: "#444" }}>{s}</div>
               ))}
             </div>
