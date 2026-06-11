@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import Footer from "@/components/Footer";
+import PracticumMapBg from "@/components/hero/PracticumMapBg";
 
 const NAVY = "#1a1aad";
 
@@ -132,21 +133,8 @@ export default function SocialWelfarePage() {
       <Navbar />
 
       {/* ── 히어로 섹션 ── */}
-      <section
-        className="relative flex min-h-screen flex-col justify-center"
-        style={{
-          backgroundImage: "url('/images/social-welfare-hero.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "rgba(0, 0, 0, 0.55)",
-          }}
-        />
+      <section className="relative flex min-h-screen flex-col justify-center">
+        <PracticumMapBg variant="social-worker" />
         <div className="relative mx-auto w-full max-w-6xl px-4 md:px-6" style={{ zIndex: 2 }}>
           <div className="max-w-2xl" style={{ wordBreak: "keep-all" }}>
             <span
