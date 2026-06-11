@@ -156,10 +156,10 @@ export default function SocialWelfarePage() {
               사회복지사 2급 · 보육교사 2급 취득 안내
             </span>
             <h1 className="text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl">
-              사회복지사·보육교사 취득방법<br />가장 쉽고, 가장 빠르게
+              반값 광고에 속지 마세요.<br />국가자격증 취득의 핵심은 '실습 연계'입니다
             </h1>
             <p className="mt-6 text-lg font-medium text-white/80 md:text-xl" style={{ lineHeight: 1.7 }}>
-              시험 없이 과목 이수만으로 취득하는 국가공인 자격증
+              내 집 근처 실습 대학 100% 안심 매칭, 중간에 포기할 일 없는 확실한 가이드
             </p>
             <div className="mt-10 flex flex-wrap gap-8">
               {[
