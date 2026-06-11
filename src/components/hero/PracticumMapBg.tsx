@@ -3,22 +3,33 @@ interface Props {
 }
 
 const BADGE = {
-  "social-worker": "사회복지현장실습 100% 연계",
-  childcare: "보육실습 100% 연계",
+  "social-worker": "전국 현장실습 100% 안심 매칭",
+  childcare: "전국 보육실습 100% 안심 매칭",
 };
 
 const ACCENT = "#3878C8";
-const MINT = "#2DD4BF";
+const ACCENT_LIGHT = "#5B9BEF";
 
-// [uni, practice] in SVG coords (viewBox 1200x720)
 // Map transform: translate(570, 20) scale(1.55)
-const CITIES: { name: string; uni: [number, number]; practice: [number, number] }[] = [
-  { name: "서울", uni: [690, 132], practice: [720, 112] },
-  { name: "인천", uni: [658, 147], practice: [685, 128] },
-  { name: "대전", uni: [698, 249], practice: [728, 230] },
-  { name: "대구", uni: [790, 271], practice: [820, 252] },
-  { name: "광주", uni: [683, 330], practice: [712, 311] },
-  { name: "부산", uni: [825, 373], practice: [854, 353] },
+// Local (x,y) → SVG: (570 + x*1.55, 20 + y*1.55)
+const CITIES = [
+  { name: "서울·경기", x: 706, y: 121 },
+  { name: "인천",      x: 660, y: 136 },
+  { name: "강원",      x: 821, y: 105 },
+  { name: "충남",      x: 666, y: 198 },
+  { name: "대전·충북", x: 725, y: 237 },
+  { name: "대구·경북", x: 815, y: 265 },
+  { name: "전북",      x: 691, y: 307 },
+  { name: "광주·전남", x: 682, y: 346 },
+  { name: "경남",      x: 799, y: 349 },
+  { name: "부산·울산", x: 841, y: 377 },
+];
+
+// Geographic adjacency connections
+const EDGES: [number, number][] = [
+  [0, 1], [0, 2], [0, 3], [0, 4],
+  [1, 3], [3, 4], [4, 5], [4, 6],
+  [6, 7], [5, 8], [8, 9], [5, 9],
 ];
 
 export default function PracticumMapBg({ variant }: Props) {
@@ -38,61 +49,55 @@ export default function PracticumMapBg({ variant }: Props) {
           <stop offset="100%" stopColor="#0d1e3a" />
         </linearGradient>
         <linearGradient id="pmMapFill" x1="20%" y1="0%" x2="80%" y2="100%">
-          <stop offset="0%" stopColor="#3878C8" stopOpacity="0.22" />
-          <stop offset="100%" stopColor="#1a1aad" stopOpacity="0.07" />
+          <stop offset="0%" stopColor="#3878C8" stopOpacity="0.18" />
+          <stop offset="100%" stopColor="#1a1aad" stopOpacity="0.06" />
         </linearGradient>
         <linearGradient id="pmLeftFade" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#0F1A30" stopOpacity="1" />
-          <stop offset="48%" stopColor="#0F1A30" stopOpacity="0.88" />
+          <stop offset="0%"   stopColor="#0F1A30" stopOpacity="1" />
+          <stop offset="45%"  stopColor="#0F1A30" stopOpacity="0.9" />
           <stop offset="100%" stopColor="#0F1A30" stopOpacity="0" />
         </linearGradient>
         <radialGradient id="pmAmbient" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#3878C8" stopOpacity="0.28" />
+          <stop offset="0%"   stopColor="#3878C8" stopOpacity="0.22" />
           <stop offset="100%" stopColor="#3878C8" stopOpacity="0" />
         </radialGradient>
         <pattern id="pmDots" x="0" y="0" width="64" height="64" patternUnits="userSpaceOnUse">
-          <circle cx="32" cy="32" r="1" fill="#3878C8" opacity="0.07" />
+          <circle cx="32" cy="32" r="1" fill="#3878C8" opacity="0.06" />
         </pattern>
       </defs>
 
       <style>{`
-        @keyframes pmPulseUni {
-          0%  { r: 11; opacity: 0.7; }
+        @keyframes pmPulse {
+          0%  { r: 10; opacity: 0.65; }
           100%{ r: 30; opacity: 0; }
         }
-        @keyframes pmPulsePrac {
-          0%  { r: 9; opacity: 0.6; }
-          100%{ r: 26; opacity: 0; }
-        }
-        @keyframes pmFlow {
-          0%  { stroke-dashoffset: 0; }
-          100%{ stroke-dashoffset: -44; }
-        }
         @keyframes pmBadge {
-          0%,100%{ opacity:1; }
-          50%    { opacity:0.82; }
+          0%,100%{ opacity: 1; }
+          50%    { opacity: 0.8; }
         }
         @keyframes pmMapBreath {
-          0%,100%{ opacity:1; }
-          50%    { opacity:0.75; }
+          0%,100%{ opacity: 1; }
+          50%    { opacity: 0.7; }
         }
-        .pm-pu  { animation: pmPulseUni  2.6s ease-out infinite; }
-        .pm-pp  { animation: pmPulsePrac 2.6s ease-out 1.3s infinite; }
-        .pm-fl  { animation: pmFlow      3.2s linear infinite; }
-        .pm-badge{ animation: pmBadge    3.5s ease-in-out infinite; }
-        .pm-map { animation: pmMapBreath 5s   ease-in-out infinite; }
+        @keyframes pmEdgeFade {
+          0%,100%{ opacity: 0.18; }
+          50%    { opacity: 0.32; }
+        }
+        .pm-pulse  { animation: pmPulse     2.8s ease-out infinite; }
+        .pm-badge  { animation: pmBadge     3.5s ease-in-out infinite; }
+        .pm-map    { animation: pmMapBreath 5s   ease-in-out infinite; }
+        .pm-edge   { animation: pmEdgeFade  4s   ease-in-out infinite; }
       `}</style>
 
       {/* Background */}
       <rect width="1200" height="720" fill="url(#pmBg)" />
       <rect width="1200" height="720" fill="url(#pmDots)" />
 
-      {/* Ambient glow behind map */}
-      <ellipse cx="760" cy="290" rx="270" ry="340" fill="url(#pmAmbient)" />
+      {/* Ambient glow */}
+      <ellipse cx="755" cy="270" rx="280" ry="340" fill="url(#pmAmbient)" />
 
-      {/* ── South Korea silhouette ── */}
+      {/* ── Korea map silhouette ── */}
       <g transform="translate(570, 20) scale(1.55)" className="pm-map">
-        {/* Main peninsula */}
         <path
           d={`
             M 18,0
@@ -124,74 +129,63 @@ export default function PracticumMapBg({ variant }: Props) {
           fill="url(#pmMapFill)"
           stroke={ACCENT}
           strokeWidth="0.7"
-          strokeOpacity="0.32"
+          strokeOpacity="0.3"
         />
-        {/* Jeju island */}
-        <ellipse cx="78" cy="288" rx="22" ry="12" fill={ACCENT} fillOpacity="0.12" stroke={ACCENT} strokeWidth="0.6" strokeOpacity="0.25" />
+        {/* Jeju */}
+        <ellipse cx="78" cy="288" rx="22" ry="12"
+          fill={ACCENT} fillOpacity="0.1"
+          stroke={ACCENT} strokeWidth="0.6" strokeOpacity="0.22" />
       </g>
 
-      {/* ── Connection arcs (uni → practice) ── */}
-      {CITIES.map((city, i) => {
-        const [ux, uy] = city.uni;
-        const [px, py] = city.practice;
-        const cx = (ux + px) / 2;
-        const cy = Math.min(uy, py) - 20;
-        return (
-          <path
-            key={`arc-${i}`}
-            d={`M ${ux} ${uy} Q ${cx} ${cy} ${px} ${py}`}
-            fill="none"
-            stroke={MINT}
-            strokeWidth="1.3"
-            strokeDasharray="6 5"
-            strokeOpacity="0.48"
-            className="pm-fl"
-            style={{ animationDelay: `${i * 0.45}s` }}
-          />
-        );
-      })}
-
-      {/* ── Markers ── */}
-      {CITIES.map((city, i) => {
-        const [ux, uy] = city.uni;
-        const [px, py] = city.practice;
-        return (
-          <g key={`mk-${i}`}>
-            {/* University: blue */}
-            <circle cx={ux} cy={uy} r="11" fill={ACCENT} opacity="0.92" />
-            <circle cx={ux} cy={uy} r="4.5" fill="#fff" opacity="0.95" />
-            <circle className="pm-pu" cx={ux} cy={uy} r="11" fill="none" stroke={ACCENT} strokeWidth="1.5" style={{ animationDelay: `${i * 0.38}s` }} />
-
-            {/* Practice site: mint */}
-            <circle cx={px} cy={py} r="9" fill={MINT} opacity="0.88" />
-            <circle cx={px} cy={py} r="3.5" fill="#fff" opacity="0.95" />
-            <circle className="pm-pp" cx={px} cy={py} r="9" fill="none" stroke={MINT} strokeWidth="1.5" style={{ animationDelay: `${i * 0.38 + 0.2}s` }} />
-          </g>
-        );
-      })}
-
-      {/* ── City labels ── */}
-      {CITIES.map((city, i) => (
-        <text
-          key={`lbl-${i}`}
-          x={city.uni[0]}
-          y={city.uni[1] + 24}
-          textAnchor="middle"
-          fontSize="11"
-          fill="#fff"
-          opacity="0.38"
-          fontFamily="Pretendard, sans-serif"
-        >
-          {city.name}
-        </text>
+      {/* ── Network edges ── */}
+      {EDGES.map(([a, b], i) => (
+        <line
+          key={`e-${i}`}
+          x1={CITIES[a].x} y1={CITIES[a].y}
+          x2={CITIES[b].x} y2={CITIES[b].y}
+          stroke={ACCENT_LIGHT}
+          strokeWidth="1"
+          className="pm-edge"
+          style={{ animationDelay: `${i * 0.22}s` }}
+        />
       ))}
 
-      {/* ── Left-side text-area fade ── */}
+      {/* ── City markers ── */}
+      {CITIES.map((city, i) => (
+        <g key={`city-${i}`}>
+          {/* Pulse ring */}
+          <circle
+            className="pm-pulse"
+            cx={city.x} cy={city.y} r="10"
+            fill="none"
+            stroke={ACCENT}
+            strokeWidth="1.5"
+            style={{ animationDelay: `${i * 0.28}s` }}
+          />
+          {/* Main dot */}
+          <circle cx={city.x} cy={city.y} r="7" fill={ACCENT} opacity="0.92" />
+          <circle cx={city.x} cy={city.y} r="3" fill="#fff" opacity="0.95" />
+          {/* Label */}
+          <text
+            x={city.x + (city.x > 780 ? 14 : -14)}
+            y={city.y + 5}
+            textAnchor={city.x > 780 ? "start" : "end"}
+            fontSize="11"
+            fill="#fff"
+            opacity="0.5"
+            fontFamily="Pretendard, sans-serif"
+          >
+            {city.name}
+          </text>
+        </g>
+      ))}
+
+      {/* ── Left fade (text readability) ── */}
       <rect width="750" height="720" fill="url(#pmLeftFade)" />
 
       {/* ── Badge ── */}
       <g className="pm-badge" transform="translate(878, 98)">
-        <rect x="-110" y="-21" width="220" height="42" rx="21" fill={ACCENT} opacity="0.96" />
+        <rect x="-118" y="-21" width="236" height="42" rx="21" fill={ACCENT} opacity="0.96" />
         <text
           textAnchor="middle"
           y="6"
@@ -199,21 +193,10 @@ export default function PracticumMapBg({ variant }: Props) {
           fontWeight="700"
           fill="#fff"
           fontFamily="Pretendard, sans-serif"
-          letterSpacing="0.4"
+          letterSpacing="0.3"
         >
           {badge}
         </text>
-      </g>
-
-      {/* ── Legend ── */}
-      <g transform="translate(862, 545)" opacity="0.78">
-        <rect x="-6" y="-18" width="128" height="64" rx="10" fill="rgba(255,255,255,0.05)" />
-        <circle cx="10" cy="2" r="6" fill={ACCENT} />
-        <circle cx="10" cy="2" r="2.5" fill="#fff" />
-        <text x="24" y="7" fontSize="12" fill="#fff" fontFamily="Pretendard, sans-serif">실습대학</text>
-        <circle cx="10" cy="30" r="6" fill={MINT} />
-        <circle cx="10" cy="30" r="2.5" fill="#fff" />
-        <text x="24" y="35" fontSize="12" fill="#fff" fontFamily="Pretendard, sans-serif">실습처</text>
       </g>
     </svg>
   );
