@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Footer from "@/components/Footer";
 import { ChevronDown, Monitor, Award, BookOpen } from "lucide-react";
 
@@ -136,7 +135,7 @@ export default function SportsPage() {
       <section
         className="relative flex min-h-screen flex-col justify-center"
         style={{
-          backgroundImage: "url('/images/4.png')",
+          backgroundImage: "url('/images/3.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -145,7 +144,7 @@ export default function SportsPage() {
           style={{
             position: "absolute",
             inset: 0,
-            background: "rgba(10, 15, 40, 0.65)",
+            background: "rgba(10, 15, 40, 0.7)",
           }}
         />
         <div className="relative mx-auto w-full max-w-6xl px-4 md:px-6" style={{ zIndex: 2 }}>
@@ -157,18 +156,20 @@ export default function SportsPage() {
               체육학 학위 취득 안내
             </span>
             <h1 className="text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl">
-              <span className="block">체육학 학위,</span>
-              <span className="block mt-2">온라인으로 취득하세요</span>
+              <span className="block">
+                <span style={{ backgroundColor: "#1a1aad", color: "#ffffff", padding: "2px 12px" }}>100% 온라인으로</span>
+              </span>
+              <span className="block mt-2">학원 없이, 시험장 없이</span>
+              <span className="block mt-2">체육학 학위까지</span>
             </h1>
             <p className="mt-6 text-lg font-medium text-white/80 md:text-xl" style={{ lineHeight: 1.7 }}>
-              2026년 체육학 전공 과목 대폭 개설,<br />
-              작년보다 더 쉽고 빠른 학위 취득이 가능합니다
+              트레이너부터 편입 준비생까지,<br />
+              학점은행제로 최단 경로 설계
             </p>
             <div className="mt-10 flex flex-wrap gap-8">
               {[
-                { value: "최단 1년", label: "전문학사 취득" },
-                { value: "최단 2년", label: "학사 취득" },
-                { value: "100%", label: "온라인 수강" },
+                { value: "최단 8개월", label: "전문학사 취득" },
+                { value: "100% 온라인", label: "시간·장소 자유" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <p className="text-2xl font-bold text-white md:text-3xl">{stat.value}</p>
@@ -187,90 +188,388 @@ export default function SportsPage() {
         </div>
       </section>
 
-      {/* ── 하이라이트 섹션 ── */}
-      <section className="w-full bg-white">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2" style={{ minHeight: 480 }}>
-            {/* 이미지 */}
-            <div style={{ position: "relative", minHeight: 320 }}>
-              <Image
-                src="/images/3.webp"
-                alt="체육학 컨설팅"
-                fill
-                loading="lazy"
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-            {/* 텍스트 */}
+      {/* ── 타깃 분기 카드 섹션 ── */}
+      <section className="w-full bg-white py-20 px-6">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center mb-12">
+            <span className="inline-block text-xs font-medium text-[#1a1aad] bg-[#EEF2FF] px-3 py-1 rounded-full mb-4 tracking-widest">
+              목적별 안내
+            </span>
+            <h2 className="text-3xl font-bold tracking-tight text-black md:text-4xl mb-3" style={{ wordBreak: "keep-all" }}>
+              어떤 목적으로 오셨나요?
+            </h2>
+            <p className="text-sm text-gray-500">목적에 따라 최적의 경로가 달라집니다</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* 현직 트레이너 카드 */}
             <div
+              className="transition-transform duration-200 ease-in-out hover:-translate-y-1.5"
               style={{
+                borderRadius: 20,
+                border: "1px solid #e5e7eb",
+                overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
-                padding: "56px 48px",
-                background: "#ffffff",
               }}
             >
-              <span
-                style={{
-                  display: "inline-block",
-                  fontSize: 11,
-                  fontWeight: 600,
-                  letterSpacing: "0.1em",
-                  color: "#1a1aad",
-                  background: "#EEF2FF",
-                  padding: "3px 12px",
-                  borderRadius: 20,
-                  marginBottom: 20,
-                  width: "fit-content",
-                }}
-              >
-                서플라이에듀의 방식
-              </span>
-              <h2
-                style={{
-                  fontSize: 26,
-                  fontWeight: 800,
-                  color: "#111",
-                  lineHeight: 1.4,
-                  marginBottom: 16,
-                  wordBreak: "keep-all",
-                }}
-              >
-                체육 현장 경력에<br />
-                <span style={{ color: "#1a1aad" }}>학사 학위까지 더하세요</span>
-              </h2>
-              <p style={{ fontSize: 14, color: "#555", lineHeight: 1.8, marginBottom: 28, wordBreak: "keep-all" }}>
-                선수 출신, 스포츠센터 트레이너, 지도사 자격 준비자까지.
-                서플라이에듀는 각자의 경력과 상황에 맞는
-                최단 경로를 전담 컨설턴트가 직접 설계해드립니다.
-              </p>
-              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                {[
-                  "자격증·독학사 조합으로 기간 최대 1년 단축",
-                  "체육학 전담 컨설턴트 1:1 배정",
-                  "학위 취득까지 중도 포기 없이 끝까지 책임",
-                ].map((t) => (
-                  <div key={t} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                    <span
-                      style={{
-                        width: 20,
-                        height: 20,
-                        borderRadius: "50%",
-                        background: "#1a1aad",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0,
-                        marginTop: 1,
-                      }}
-                    >
-                      <span style={{ fontSize: 10, color: "#fff", fontWeight: 700 }}>✓</span>
-                    </span>
-                    <span style={{ fontSize: 14, color: "#333", lineHeight: 1.6 }}>{t}</span>
-                  </div>
-                ))}
+              <div style={{ background: "#F8F9FA", padding: "32px 32px 24px" }}>
+                <div
+                  style={{
+                    width: 48,
+                    height: 48,
+                    borderRadius: 14,
+                    background: "#e5e7eb",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: 16,
+                    fontSize: 24,
+                  }}
+                >
+                  💪
+                </div>
+                <h3 style={{ fontSize: 20, fontWeight: 800, color: "#111", marginBottom: 8, wordBreak: "keep-all" }}>
+                  건강운동관리사
+                </h3>
+                <p style={{ fontSize: 14, color: "#666", lineHeight: 1.6, wordBreak: "keep-all" }}>
+                  건강운동관리사 취득, 학위로 전문성 증명
+                </p>
               </div>
+              <div style={{ padding: "24px 32px 32px", background: "#fff", flexGrow: 1 }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 28 }}>
+                  {[
+                    "현장 경력에 공식 학위를 더해 전문성 입증",
+                    "건강운동관리사 응시자격 취득 경로 설계",
+                    "세미나 수료증이 아닌 국가 공인 자격증 취득",
+                  ].map((t) => (
+                    <div key={t} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                      <span
+                        style={{
+                          width: 18,
+                          height: 18,
+                          borderRadius: "50%",
+                          background: "#111",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                          marginTop: 2,
+                          fontSize: 9,
+                          color: "#fff",
+                          fontWeight: 700,
+                        }}
+                      >
+                        ✓
+                      </span>
+                      <span style={{ fontSize: 14, color: "#333", lineHeight: 1.6, wordBreak: "keep-all" }}>{t}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  href="#trainer"
+                  className="inline-block w-full rounded-full py-3 text-sm font-bold text-center transition-opacity hover:opacity-90"
+                  style={{ background: "#1a1aad", color: "#fff" }}
+                >
+                  건강운동관리사 자세히 보기 →
+                </Link>
+              </div>
+            </div>
+
+            {/* 편입·대학원 준비 카드 */}
+            <div
+              className="transition-transform duration-200 ease-in-out hover:-translate-y-1.5"
+              style={{
+                borderRadius: 20,
+                border: "1px solid #e5e7eb",
+                overflow: "hidden",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <div style={{ background: "#F8F9FA", padding: "32px 32px 24px" }}>
+                <div
+                  style={{
+                    width: 48,
+                    height: 48,
+                    borderRadius: 14,
+                    background: "#e5e7eb",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: 16,
+                    fontSize: 24,
+                  }}
+                >
+                  🎓
+                </div>
+                <h3 style={{ fontSize: 20, fontWeight: 800, color: "#111", marginBottom: 8, wordBreak: "keep-all" }}>
+                  편입·대학원 준비
+                </h3>
+                <p style={{ fontSize: 14, color: "#666", lineHeight: 1.6, wordBreak: "keep-all" }}>
+                  체대 편입, 동일계열 학위로 유리하게
+                </p>
+              </div>
+              <div style={{ padding: "24px 32px 32px", background: "#fff", flexGrow: 1 }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 28 }}>
+                  {[
+                    "비실기 전형 지원 시 동일계열 학위로 어필",
+                    "실기 전형 준비와 학위 취득 병행 가능",
+                    "대학원 진학 목적이라면 학사 학위 필요",
+                  ].map((t) => (
+                    <div key={t} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                      <span
+                        style={{
+                          width: 18,
+                          height: 18,
+                          borderRadius: "50%",
+                          background: "#111",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                          marginTop: 2,
+                          fontSize: 9,
+                          color: "#fff",
+                          fontWeight: 700,
+                        }}
+                      >
+                        ✓
+                      </span>
+                      <span style={{ fontSize: 14, color: "#333", lineHeight: 1.6, wordBreak: "keep-all" }}>{t}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  href="#transfer"
+                  className="inline-block w-full rounded-full py-3 text-sm font-bold text-center transition-opacity hover:opacity-90"
+                  style={{ background: "#1a1aad", color: "#fff" }}
+                >
+                  편입·대학원 자세히 보기 →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 섹션 3: 건강운동관리사 ── */}
+      <section id="trainer" className="w-full bg-white py-20 px-6">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center mb-12">
+            <span className="inline-block text-xs font-medium text-[#1a1aad] bg-[#EEF2FF] px-3 py-1 rounded-full mb-4 tracking-widest">
+              건강운동관리사 취득과정
+            </span>
+            <h2
+              className="text-3xl font-bold tracking-tight text-black md:text-4xl mb-3"
+              style={{ wordBreak: "keep-all" }}
+            >
+              체육업계 최고의 스펙업
+            </h2>
+          </div>
+
+          {/* 케이스 카드 */}
+          <div
+            style={{
+              background: "#fff",
+              borderRadius: 16,
+              borderTop: "1px solid #e5e7eb",
+              borderRight: "1px solid #e5e7eb",
+              borderBottom: "1px solid #e5e7eb",
+              borderLeft: "4px solid #1a1aad",
+              padding: "32px 36px",
+            }}
+          >
+            <p style={{ fontSize: 40, fontWeight: 900, color: "#1a1aad", lineHeight: 1, marginBottom: 12 }}>"</p>
+            <p
+              style={{
+                fontSize: 18,
+                fontWeight: 700,
+                color: "#111",
+                lineHeight: 1.6,
+                marginBottom: 20,
+                wordBreak: "keep-all",
+              }}
+            >
+              자격증 없이 3년 일했는데, 이력서에 세미나밖에 없어요
+            </p>
+            <p style={{ fontSize: 13, color: "#888", marginBottom: 20 }}>27세 · 헬스장 트레이너 3년</p>
+            <div className="flex flex-wrap items-center gap-2">
+              {["체육학 전문학사 취득", "건강운동관리사 취득", "병원 재활센터 취업"].map((step, i, arr) => (
+                <div key={step} className="flex items-center gap-2">
+                  <span
+                    style={{
+                      fontSize: 13,
+                      fontWeight: 600,
+                      color: "#1a1aad",
+                      background: "#EEF2FF",
+                      padding: "4px 12px",
+                      borderRadius: 20,
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {step}
+                  </span>
+                  {i < arr.length - 1 && (
+                    <span style={{ color: "#1a1aad", fontWeight: 700, fontSize: 14 }}>→</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 실제 후기 증거 */}
+          <div style={{ background: "#F8F9FA", borderRadius: 20, padding: "48px 40px", marginTop: 48 }}>
+            <div className="text-center mb-10">
+              <span className="inline-block text-xs font-medium text-[#1a1aad] bg-[#EEF2FF] px-3 py-1 rounded-full mb-4 tracking-widest">
+                실제 사례
+              </span>
+              <h3
+                className="text-2xl font-bold text-black md:text-3xl"
+                style={{ wordBreak: "keep-all" }}
+              >
+                실제 결과로 증명합니다
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* 카톡 후기 */}
+              <div className="flex flex-col items-center gap-4">
+                <img
+                  src="/images/sports-review-kakao.png"
+                  alt="카카오톡 후기"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    borderRadius: 12,
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.10)",
+                    display: "block",
+                  }}
+                />
+                <p style={{ fontSize: 13, color: "#555", fontWeight: 600 }}>직장 다니면서 학위 취득 완료</p>
+              </div>
+              {/* 자격증 */}
+              <div className="flex flex-col items-center gap-4">
+                <img
+                  src="/images/sports-certificate.png"
+                  alt="건강운동관리사 자격증"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    borderRadius: 12,
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.10)",
+                    display: "block",
+                  }}
+                />
+                <p style={{ fontSize: 13, color: "#555", fontWeight: 600 }}>건강운동관리사 자격증 취득</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 섹션 4: 편입·대학원 ── */}
+      <section id="transfer" className="w-full bg-[#F8F9FA] py-20 px-6">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center mb-12">
+            <span className="inline-block text-xs font-medium text-[#1a1aad] bg-[#EEF2FF] px-3 py-1 rounded-full mb-4 tracking-widest">
+              편입·대학원 준비
+            </span>
+            <h2
+              className="text-3xl font-bold tracking-tight text-black md:text-4xl mb-3"
+              style={{ wordBreak: "keep-all" }}
+            >
+              부상으로 실기를 포기했다면,<br className="hidden md:block" /> 비실기 전형이 있습니다
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+            {[
+              {
+                num: "01",
+                text: "체대 편입 준비생의 대부분은 실기 전형을 준비하지만, 부상으로 비실기 전형으로 전환하는 케이스가 많습니다.",
+              },
+              {
+                num: "02",
+                text: "비실기 전형은 동일계열 학위 보유 시 유리하게 어필할 수 있습니다.",
+              },
+              {
+                num: "03",
+                text: "대학원 진학이 목적이라면 전문학사가 아닌 학사 학위가 필요합니다.",
+              },
+            ].map((item) => (
+              <div
+                key={item.num}
+                style={{
+                  borderRadius: 16,
+                  border: "1px solid #e5e7eb",
+                  padding: "28px 24px",
+                  background: "#fff",
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: 28,
+                    fontWeight: 800,
+                    color: "#EEF2FF",
+                    lineHeight: 1,
+                    marginBottom: 14,
+                    fontFamily: "monospace",
+                  }}
+                >
+                  {item.num}
+                </p>
+                <p style={{ fontSize: 14, color: "#444", lineHeight: 1.8, wordBreak: "keep-all" }}>{item.text}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* 케이스 카드 */}
+          <div
+            style={{
+              background: "#fff",
+              borderRadius: 16,
+              borderTop: "1px solid #e5e7eb",
+              borderRight: "1px solid #e5e7eb",
+              borderBottom: "1px solid #e5e7eb",
+              borderLeft: "4px solid #1a1aad",
+              padding: "32px 36px",
+            }}
+          >
+            <p style={{ fontSize: 40, fontWeight: 900, color: "#1a1aad", lineHeight: 1, marginBottom: 12 }}>"</p>
+            <p
+              style={{
+                fontSize: 18,
+                fontWeight: 700,
+                color: "#111",
+                lineHeight: 1.6,
+                marginBottom: 20,
+                wordBreak: "keep-all",
+              }}
+            >
+              실기 준비하다 부상으로 비실기 전형으로 방향 바꿨어요
+            </p>
+            <p style={{ fontSize: 13, color: "#888", marginBottom: 20 }}>20세 · 실기 준비 중 부상</p>
+            <div className="flex flex-wrap items-center gap-2">
+              {["체육학 전문학사 취득", "비실기 전형 지원", "목표 대학 합격"].map((step, i, arr) => (
+                <div key={step} className="flex items-center gap-2">
+                  <span
+                    style={{
+                      fontSize: 13,
+                      fontWeight: 600,
+                      color: "#1a1aad",
+                      background: "#EEF2FF",
+                      padding: "4px 12px",
+                      borderRadius: 20,
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {step}
+                  </span>
+                  {i < arr.length - 1 && (
+                    <span style={{ color: "#1a1aad", fontWeight: 700, fontSize: 14 }}>→</span>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>
