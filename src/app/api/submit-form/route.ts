@@ -1,4 +1,5 @@
 import { kv } from "@vercel/kv";
+import { google } from "googleapis";
 
 const STATUS_MAP: Record<string, string> = {
   high_school: "고등학교 졸업",
@@ -7,6 +8,80 @@ const STATUS_MAP: Record<string, string> = {
   athlete: "선수·코치 출신",
   other: "기타",
 };
+
+// 텔레그램 알림
+async function sendTelegramAlert(entry: {
+  name: string;
+  phone: string;
+  course: string;
+  status: string;
+  date: string;
+  utm: string;
+}) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+  if (!token || !chatId) return;
+
+  const text =
+    `🔔 새 상담 신청\n\n` +
+    `👤 이름: ${entry.name}\n` +
+    `📞 연락처: ${entry.phone}\n` +
+    `📚 과정: ${entry.course}\n` +
+    `🎓 학력: ${entry.status}\n` +
+    `🕒 신청시각: ${entry.date}\n` +
+    `📈 유입: ${entry.utm}`;
+
+  try {
+    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: chatId, text }),
+    });
+  } catch (err) {
+    console.error("[telegram-alert]", err);
+  }
+}
+
+// 구글 시트 자동 기록
+async function appendToSheet(entry: {
+  name: string;
+  phone: string;
+  course: string;
+  status: string;
+  date: string;
+  utm: string;
+}) {
+  try {
+    const keyStr = process.env.GOOGLE_SERVICE_ACCOUNT_KEY;
+    const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+    if (!keyStr || !spreadsheetId) return;
+
+    const key = JSON.parse(keyStr);
+    const auth = new google.auth.GoogleAuth({
+      credentials: key,
+      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+    });
+
+    const sheets = google.sheets({ version: "v4", auth });
+    await sheets.spreadsheets.values.append({
+      spreadsheetId,
+      range: "문의현황!A:F",
+      valueInputOption: "USER_ENTERED",
+      requestBody: {
+        values: [[
+          "",             // 담당자 (수동 입력)
+          entry.name,     // 이름
+          entry.phone,    // 연락처
+          entry.course,   // 과정
+          "",             // 결제여부 (수동 입력)
+          entry.date,     // 신청일자
+        ]],
+      },
+    });
+  } catch (err) {
+    console.error("[sheet-append]", err);
+  }
+}
 
 export async function POST(request: Request) {
   try {
@@ -39,6 +114,12 @@ export async function POST(request: Request) {
     };
 
     await kv.lpush("submissions", JSON.stringify(entry));
+
+    // 텔레그램 알림 + 시트 기록 동시 실행
+    await Promise.all([
+      sendTelegramAlert(entry),
+      appendToSheet(entry),
+    ]);
 
     return Response.json({ success: true });
   } catch (error) {
