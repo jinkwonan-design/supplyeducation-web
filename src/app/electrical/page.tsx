@@ -96,24 +96,31 @@ export default function ElectricalPage() {
       <section
         className="relative flex min-h-screen flex-col justify-center"
         style={{
-          backgroundImage: "url('/images/5.png')",
+          backgroundImage: "url('/images/electrical-hero-night.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        {/* 어두운 오버레이 */}
-        <div style={{ position: "absolute", inset: 0, background: "rgba(10, 15, 40, 0.72)" }} />
+        {/* 어두운 오버레이 — 야경 조명이 살도록 좌측을 더 진하게 처리 */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(90deg, rgba(8,12,32,0.85) 0%, rgba(8,12,32,0.7) 45%, rgba(8,12,32,0.5) 100%)",
+          }}
+        />
 
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:px-6">
           <div className="max-w-2xl" style={{ wordBreak: "keep-all" }}>
             {/* H1 */}
             <h1 className="text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl">
-              <span className="block">AI시대에 살아남을</span>
+              <span className="block">시공이든, 감리든, 건설사든.</span>
               <span
                 className="mt-3 inline-block rounded-lg px-4 py-2"
                 style={{ background: NAVY }}
               >
-                유일한 노후대비 자격증
+                학위 하나면 세 곳 다 열립니다
               </span>
             </h1>
 
@@ -122,16 +129,16 @@ export default function ElectricalPage() {
               className="mt-6 text-base font-medium text-white/80 md:text-lg"
               style={{ lineHeight: 1.75 }}
             >
-              응시자격부터 전기공학사 학위까지,<br />
-              가장 쉽고 빠르게 온라인으로 설계해드립니다
+              전기공사협회 · 전기기술인협회 · 건설기술인협회<br />
+              경력수첩 발급 요건, 한 번에.
             </p>
 
             {/* 통계 */}
             <div className="mt-10 flex flex-wrap gap-8">
               {[
-                { value: "최단 4개월", label: "응시자격 취득" },
                 { value: "100% 온라인", label: "시간·장소 자유" },
-                { value: "1:1 전담 관리", label: "처음부터 끝까지" },
+                { value: "시험 없이 취득", label: "국가기술자격 시험 불필요" },
+                { value: "1:1 전담 설계", label: "처음부터 끝까지" },
               ].map((s) => (
                 <div key={s.label} className="text-center">
                   <p className="text-2xl font-bold text-white md:text-3xl">{s.value}</p>
@@ -146,94 +153,139 @@ export default function ElectricalPage() {
               className="mt-10 inline-block rounded-full px-8 py-4 text-base font-bold transition-transform hover:scale-105 active:scale-95"
               style={{ background: "#FFFFFF", color: NAVY }}
             >
-              무료 상담 신청하기 →
+              내 상황 무료 진단받기 →
             </Link>
           </div>
         </div>
       </section>
 
       {/* ════════════════════════════════════════
-          섹션 2. AI 시대 전기기사
+          섹션 2. 왜 전기공학사인가
       ════════════════════════════════════════ */}
-      <section className="w-full bg-[#F8F9FA] py-8 px-4 md:py-20 md:px-6">
-        <div className="mx-auto max-w-5xl">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-stretch">
-
-            {/* 좌측: 이미지 컨테이너 — 모바일 max-h 250px, 데스크탑 stretch 높이 */}
-            <div className="max-h-[250px] overflow-hidden md:max-h-none md:h-full">
-              <img
-                src="/images/electrical-hero-person.webp"
-                alt="전기기사 전문가"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  borderRadius: 12,
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
-                  display: "block",
-                }}
-              />
-            </div>
-
-            {/* 우측: 텍스트 + 카드 */}
-            <div>
-              <span className="mb-3 inline-block rounded-full bg-[#EEF2FF] px-3 py-1 text-xs font-medium tracking-widest text-[#1a1aad]">
-                왜 지금 전기기사인가
-              </span>
-              <h2
-                className="mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl"
-                style={{ wordBreak: "keep-all" }}
-              >
-                AI가 발전할수록,<br />전기기사는 더 필요합니다
-              </h2>
-
-              {/* 카드 3개 */}
-              <div className="flex flex-col gap-3">
-                {[
-                  {
-                    icon: "⚡",
-                    title: "AI·로봇의 생명선",
-                    desc: "인공지능 서버, 로봇 공장, 데이터센터. 모든 첨단 기술은 전기 위에 존재합니다. 전기가 끊기면 모든 시스템은 정지합니다.",
-                  },
-                  {
-                    icon: "🌿",
-                    title: "친환경 시대의 핵심",
-                    desc: "태양광, 풍력, 전기차. 탄소중립 시대의 새로운 에너지 생태계를 설계하고 유지하는 전문가가 바로 전기기사입니다.",
-                  },
-                  {
-                    icon: "🛡️",
-                    title: "사라지지 않는 직업",
-                    desc: "AI는 계산하고, 전기기사는 그것을 현실에 적용합니다. 기술이 발전할수록 전기기사의 역할은 더 넓어집니다.",
-                  },
-                ].map((card) => (
-                  <div
-                    key={card.title}
-                    style={{
-                      background: "#ffffff",
-                      border: "1px solid #e5e7eb",
-                      borderRadius: 12,
-                      boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
-                      padding: "14px 18px",
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: 12,
-                    }}
-                  >
-                    <span style={{ fontSize: 24, flexShrink: 0, lineHeight: 1.2 }}>{card.icon}</span>
-                    <div>
-                      <h3 style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 4 }}>
-                        {card.title}
-                      </h3>
-                      <p style={{ fontSize: 13, color: "#555", lineHeight: 1.7, wordBreak: "keep-all" }}>
-                        {card.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
+      <section className="w-full bg-[#F8F9FA] py-14 px-4 md:py-20 md:px-6">
+        <div className="mx-auto max-w-3xl">
+          {/* 헤더 */}
+          <div className="mb-10 text-center md:mb-12">
+            <span className="mb-4 inline-block rounded-full bg-[#EEF2FF] px-3 py-1 text-xs font-medium tracking-widest text-[#1a1aad]">
+              왜 전기공학사인가
+            </span>
+            <h2
+              className="mb-5 text-3xl font-bold tracking-tight text-black md:text-4xl"
+              style={{ wordBreak: "keep-all" }}
+            >
+              왜 전기공학사여야 하는가
+            </h2>
+            <p
+              className="text-sm text-gray-600 md:text-base"
+              style={{ lineHeight: 1.8, wordBreak: "keep-all" }}
+            >
+              경력수첩은 아무 학과로는 나오지 않습니다.<br />
+              협회가 보는 건 딱 하나 &mdash; &ldquo;전기 관련 학과 출신&rdquo; 여부입니다.
+            </p>
           </div>
+
+          {/* 비교 테이블 */}
+          <div
+            style={{
+              borderRadius: 16,
+              overflow: "hidden",
+              border: "1px solid #e5e7eb",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
+              background: "#fff",
+            }}
+          >
+            {/* 헤더 행 */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1.15fr 1fr 1fr",
+                background: NAVY,
+                padding: "14px 12px",
+              }}
+            >
+              {["", "경영학사", "전기공학사"].map((h, i) => (
+                <span
+                  key={i}
+                  style={{
+                    fontSize: 13,
+                    fontWeight: 700,
+                    color: "#fff",
+                    textAlign: i === 0 ? "left" : "center",
+                    paddingLeft: i === 0 ? 8 : 0,
+                    wordBreak: "keep-all",
+                  }}
+                >
+                  {h}
+                </span>
+              ))}
+            </div>
+            {/* 데이터 행 */}
+            {[
+              { label: "기사 시험 응시", a: "✅ 가능", b: "✅ 가능", highlight: false },
+              { label: "시험 합격 시", a: "자격증만", b: "자격증 + 경력수첩", highlight: false },
+              { label: "시험 불합격 시", a: "아무것도 없음", b: "경력수첩은 남음", highlight: true },
+            ].map((row, i) => (
+              <div
+                key={row.label}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1.15fr 1fr 1fr",
+                  padding: "15px 12px",
+                  background: row.highlight ? "#FFF7F5" : i % 2 === 0 ? "#fff" : "#F8F9FA",
+                  borderTop: "1px solid #f3f4f6",
+                  alignItems: "center",
+                  gap: 6,
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: 13,
+                    fontWeight: 700,
+                    color: "#111",
+                    paddingLeft: 8,
+                    wordBreak: "keep-all",
+                  }}
+                >
+                  {row.label}
+                </span>
+                <span
+                  style={{
+                    fontSize: 13,
+                    fontWeight: row.highlight ? 700 : 500,
+                    color: row.highlight ? "#EF4444" : "#444",
+                    textAlign: "center",
+                    textDecoration: row.highlight ? "line-through" : "none",
+                    wordBreak: "keep-all",
+                  }}
+                >
+                  {row.a}
+                </span>
+                <span
+                  style={{
+                    fontSize: 13,
+                    fontWeight: row.highlight ? 800 : 600,
+                    color: row.highlight ? "#16a34a" : NAVY,
+                    textAlign: "center",
+                    wordBreak: "keep-all",
+                  }}
+                >
+                  {row.b}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* 테이블 아래 부연 텍스트 */}
+          <p
+            className="mt-8 text-center text-sm text-gray-600 md:text-base"
+            style={{ lineHeight: 1.85, wordBreak: "keep-all" }}
+          >
+            학원 상담에서는 흔히 &ldquo;아무 전공이든 학점만 채우면 된다&rdquo;고 안내받습니다.
+            <br />
+            <span style={{ fontWeight: 700, color: "#111" }}>
+              응시자격은 맞습니다. 하지만 수첩은 다릅니다.
+            </span>
+          </p>
         </div>
       </section>
 
