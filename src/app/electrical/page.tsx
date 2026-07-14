@@ -123,7 +123,7 @@ export default function ElectricalPage() {
             {/* H1 — 모바일: 파란 박스 없이 색상/굵기로만 강조, 데스크탑: 기존 네이비 박스 유지 */}
             <h1 className="text-[1.4rem] font-bold leading-snug tracking-tight text-white md:text-5xl md:leading-tight">
               <span className="block">시공이든, 감리든, 건설사든.</span>
-              <span className="mt-1 inline-block font-extrabold leading-snug text-[#8ea2ff] md:mt-3 md:rounded-lg md:bg-[#1a1aad] md:px-4 md:py-2 md:leading-tight md:text-white">
+              <span className="mt-1 inline-block font-extrabold leading-snug text-[#6d7cff] md:mt-3 md:rounded-lg md:bg-[#1a1aad] md:px-4 md:py-2 md:leading-tight md:text-white">
                 학위 하나면 세 곳 다 열립니다
               </span>
             </h1>
