@@ -114,10 +114,10 @@ export default function ElectricalPage() {
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:px-6">
           <div className="max-w-2xl" style={{ wordBreak: "keep-all" }}>
             {/* H1 */}
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl">
+            <h1 className="text-[1.75rem] font-bold leading-tight tracking-tight text-white md:text-5xl">
               <span className="block">시공이든, 감리든, 건설사든.</span>
               <span
-                className="mt-3 inline-block rounded-lg px-4 py-2"
+                className="mt-4 inline-block rounded-lg px-4 py-2 text-2xl leading-tight md:mt-3 md:text-5xl"
                 style={{ background: NAVY }}
               >
                 학위 하나면 세 곳 다 열립니다
@@ -126,7 +126,7 @@ export default function ElectricalPage() {
 
             {/* 서브 */}
             <p
-              className="mt-6 text-base font-medium text-white/80 md:text-lg"
+              className="mt-6 text-sm font-medium text-white/80 md:text-lg"
               style={{ lineHeight: 1.75 }}
             >
               전기공사협회 · 전기기술인협회 · 건설기술인협회<br />
@@ -134,14 +134,14 @@ export default function ElectricalPage() {
             </p>
 
             {/* 통계 */}
-            <div className="mt-10 flex flex-wrap gap-8">
+            <div className="mt-10 flex flex-col gap-5 md:mt-10 md:flex-row md:flex-wrap md:gap-8">
               {[
                 { value: "100% 온라인", label: "시간·장소 자유" },
                 { value: "시험 없이 취득", label: "국가기술자격 시험 불필요" },
                 { value: "1:1 전담 설계", label: "처음부터 끝까지" },
               ].map((s) => (
-                <div key={s.label} className="text-center">
-                  <p className="text-2xl font-bold text-white md:text-3xl">{s.value}</p>
+                <div key={s.label} className="text-left md:text-center">
+                  <p className="text-xl font-bold text-white md:text-3xl">{s.value}</p>
                   <p className="mt-1 text-xs text-white/60">{s.label}</p>
                 </div>
               ))}
@@ -150,7 +150,7 @@ export default function ElectricalPage() {
             {/* CTA */}
             <Link
               href="/apply"
-              className="mt-10 inline-block rounded-full px-8 py-4 text-base font-bold transition-transform hover:scale-105 active:scale-95"
+              className="mt-12 inline-block rounded-full px-8 py-4 text-base font-bold transition-transform hover:scale-105 active:scale-95 md:mt-10"
               style={{ background: "#FFFFFF", color: NAVY }}
             >
               내 상황 무료 진단받기 →
