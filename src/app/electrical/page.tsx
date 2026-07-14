@@ -94,18 +94,25 @@ export default function ElectricalPage() {
           섹션 1. 히어로
       ════════════════════════════════════════ */}
       <section
-        className="relative flex min-h-screen flex-col justify-center"
+        className="relative flex min-h-screen flex-col justify-end pb-14 md:justify-center md:pb-0"
         style={{
           backgroundImage: "url('/images/electrical-hero-night.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        {/* 어두운 오버레이 — 야경 조명이 살도록 좌측을 더 진하게 처리 */}
+        {/* 모바일 오버레이 — 상단은 이미지 노출, 하단만 진하게 */}
         <div
+          className="absolute inset-0 md:hidden"
           style={{
-            position: "absolute",
-            inset: 0,
+            background:
+              "linear-gradient(180deg, rgba(8,12,32,0.35) 0%, rgba(8,12,32,0.18) 35%, rgba(8,12,32,0.55) 62%, rgba(8,12,32,0.92) 100%)",
+          }}
+        />
+        {/* 데스크탑 오버레이 — 좌측을 진하게 */}
+        <div
+          className="absolute inset-0 hidden md:block"
+          style={{
             background:
               "linear-gradient(90deg, rgba(8,12,32,0.85) 0%, rgba(8,12,32,0.7) 45%, rgba(8,12,32,0.5) 100%)",
           }}
@@ -113,44 +120,41 @@ export default function ElectricalPage() {
 
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:px-6">
           <div className="max-w-2xl" style={{ wordBreak: "keep-all" }}>
-            {/* H1 */}
-            <h1 className="text-[1.75rem] font-bold leading-tight tracking-tight text-white md:text-5xl">
+            {/* H1 — 모바일: 파란 박스 없이 색상/굵기로만 강조, 데스크탑: 기존 네이비 박스 유지 */}
+            <h1 className="text-[1.4rem] font-bold leading-snug tracking-tight text-white md:text-5xl md:leading-tight">
               <span className="block">시공이든, 감리든, 건설사든.</span>
-              <span
-                className="mt-4 inline-block rounded-lg px-4 py-2 text-2xl leading-tight md:mt-3 md:text-5xl"
-                style={{ background: NAVY }}
-              >
+              <span className="mt-1 inline-block font-extrabold leading-snug text-[#8ea2ff] md:mt-3 md:rounded-lg md:bg-[#1a1aad] md:px-4 md:py-2 md:leading-tight md:text-white">
                 학위 하나면 세 곳 다 열립니다
               </span>
             </h1>
 
-            {/* 서브 */}
+            {/* 서브 — 협회명 축소 */}
             <p
-              className="mt-6 text-sm font-medium text-white/80 md:text-lg"
-              style={{ lineHeight: 1.75 }}
+              className="mt-4 text-[13px] font-medium text-white/80 md:mt-6 md:text-lg"
+              style={{ lineHeight: 1.7 }}
             >
               전기공사협회 · 전기기술인협회 · 건설기술인협회<br />
               경력수첩 발급 요건, 한 번에.
             </p>
 
-            {/* 통계 */}
-            <div className="mt-10 flex flex-col gap-5 md:mt-10 md:flex-row md:flex-wrap md:gap-8">
+            {/* 통계 — 모바일: 가로 1줄, 데스크탑: 기존 배치 */}
+            <div className="mt-6 flex flex-row justify-between gap-2 md:mt-10 md:justify-start md:flex-wrap md:gap-8">
               {[
                 { value: "100% 온라인", label: "시간·장소 자유" },
                 { value: "시험 없이 취득", label: "국가기술자격 시험 불필요" },
                 { value: "1:1 전담 설계", label: "처음부터 끝까지" },
               ].map((s) => (
                 <div key={s.label} className="text-left md:text-center">
-                  <p className="text-xl font-bold text-white md:text-3xl">{s.value}</p>
-                  <p className="mt-1 text-xs text-white/60">{s.label}</p>
+                  <p className="text-[15px] font-bold text-white md:text-3xl">{s.value}</p>
+                  <p className="mt-0.5 text-[10px] leading-snug text-white/60 md:mt-1 md:text-xs">{s.label}</p>
                 </div>
               ))}
             </div>
 
-            {/* CTA */}
+            {/* CTA — 텍스트 바로 아래, 하단 여백은 섹션 pb로 확보 */}
             <Link
               href="/apply"
-              className="mt-12 inline-block rounded-full px-8 py-4 text-base font-bold transition-transform hover:scale-105 active:scale-95 md:mt-10"
+              className="mt-7 inline-block rounded-full px-7 py-3.5 text-[15px] font-bold transition-transform hover:scale-105 active:scale-95 md:mt-10 md:px-8 md:py-4 md:text-base"
               style={{ background: "#FFFFFF", color: NAVY }}
             >
               내 상황 무료 진단받기 →
