@@ -14,9 +14,37 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// 카카오/페이스북이 og:image 를 절대 URL 로 가져가므로 실제 배포 도메인을 사용합니다.
+const SITE_URL = "https://www.supplyedu.co.kr";
+
 export const metadata: Metadata = {
-  title: "서플라이에듀",
-  description: "체육학 학위 온라인 취득 | 서플라이에듀",
+  metadataBase: new URL(SITE_URL),
+  title: "서플라이에듀케이션 | 학점은행제 전문 상담",
+  description:
+    "응시자격부터 학위까지, 1:1 전담 플래너가 최단 경로를 설계합니다",
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    siteName: "서플라이에듀케이션",
+    title: "서플라이에듀케이션 | 학점은행제 전문 상담",
+    description:
+      "응시자격부터 학위까지, 1:1 전담 플래너가 최단 경로를 설계합니다",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "서플라이에듀케이션 · 학점은행제 전문 상담",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "서플라이에듀케이션 | 학점은행제 전문 상담",
+    description:
+      "응시자격부터 학위까지, 1:1 전담 플래너가 최단 경로를 설계합니다",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
