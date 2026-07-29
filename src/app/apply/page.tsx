@@ -271,7 +271,7 @@ export default function ApplyPage() {
               {!fromCalc && (
                 <div className="mb-5">
                   <label className="mb-1.5 block text-sm font-semibold text-gray-700">
-                    현재 상태 <span className="text-red-400">*</span>
+                    최종 학력 <span className="text-red-400">*</span>
                   </label>
                   <select
                     name="status"
@@ -282,11 +282,9 @@ export default function ApplyPage() {
                     style={{ color: form.status === "" ? "#9ca3af" : "#111827" }}
                   >
                     <option value="" disabled>선택해주세요</option>
-                    <option value="high_school">고등학교 졸업</option>
-                    <option value="college">대학교 중퇴·재학</option>
-                    <option value="worker">직장인</option>
-                    <option value="athlete">선수·코치 출신</option>
-                    <option value="other">기타</option>
+                    <option value="고졸">고졸</option>
+                    <option value="대학교 중퇴·재학">대학교 중퇴·재학</option>
+                    <option value="대졸">대졸</option>
                   </select>
                 </div>
               )}
