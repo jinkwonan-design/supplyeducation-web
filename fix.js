@@ -1,0 +1,10 @@
+﻿const fs = require('fs');
+let c = fs.readFileSync('src/app/social-welfare/page.tsx', 'utf8');
+c = c.replace('사회복지사 2급 · 보육교사 2급 취득 안내', '정부 지원금으로 매출 내는 소자본 창업');
+c = c.replace('반값 광고에 속지 마세요.<br />', '사회복지사 2급으로<br />');
+c = c.replace('국가자격증 취득의 핵심은<br />', '<span style={{ color: "#2DD4BF" }}>산후파견업 대표</span>가<br />');
+c = c.replace('<span style={{ color: "#2DD4BF" }}>[실습연계]</span>입니다', '될 수 있습니다');
+c = c.replace('내 집 근처 실습 100% 안심 매칭<br />', '시험 없이 취득 가능한 국가자격증<br />');
+c = c.replace('중간에 포기할 일 없는 확실한 가이드', '1:1 담당자가 자격증 취득까지 책임집니다');
+fs.writeFileSync('src/app/social-welfare/page.tsx', c, 'utf8');
+console.log('done');

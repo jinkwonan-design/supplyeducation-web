@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -717,7 +717,7 @@ export default function HomePage() {
               </button>
               {isQualOpen && (
                 <div style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", marginTop: 8, background: "#ffffff", borderRadius: 10, boxShadow: "0 4px 20px rgba(0,0,0,0.12)", overflow: "hidden", minWidth: 130, zIndex: 100 }}>
-                  <Link href="/social-welfare" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 whitespace-nowrap transition-colors">사회복지사2급 보육교사2급</Link>
+                  <Link href="/social-welfare" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 whitespace-nowrap transition-colors">사회복지사 2급</Link>
                   <Link href="/national-cert" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 border-t border-gray-100 whitespace-nowrap transition-colors">산업기사 기사 자격증</Link>
                   <Link href="/beauty" className="block px-5 py-3 text-sm text-gray-800 hover:text-[#1a1aad] hover:bg-gray-50 border-t border-gray-100 whitespace-nowrap transition-colors">종합미용면허증</Link>
                 </div>
@@ -805,7 +805,7 @@ export default function HomePage() {
             {mobileQual && (
               <div className="mb-1 ml-4 flex flex-col" style={{ borderBottom: "1px solid #f3f4f6" }}>
                 {[
-                  { href: "/social-welfare", label: "사회복지사2급 보육교사2급" },
+                  { href: "/social-welfare", label: "사회복지사 2급" },
                   { href: "/national-cert", label: "산업기사 기사 자격증" },
                   { href: "/beauty", label: "종합미용면허증" },
                 ].map(item => (
