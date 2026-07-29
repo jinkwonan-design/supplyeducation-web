@@ -65,7 +65,7 @@ async function appendToSheet(entry: {
     const sheets = google.sheets({ version: "v4", auth });
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: "문의현황!A:F",
+      range: "문의현황!A:G",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [[
@@ -73,6 +73,7 @@ async function appendToSheet(entry: {
           entry.name,     // 이름
           entry.phone,    // 연락처
           entry.course,   // 과정
+          entry.status,   // 학력
           "",             // 결제여부 (수동 입력)
           entry.date,     // 신청일자
         ]],
